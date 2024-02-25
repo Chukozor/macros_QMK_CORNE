@@ -2,13 +2,15 @@
 
 // #define LEAST TT(0)
 
-#define HT_E    TT(16)
-#define HT_C    TT(17)
-#define HT_A    TT(18)
-#define HT_U    TT(19)
-#define HT_I    TT(20)
-#define HT_O    TT(21)
-#define ESC_TAB TT(22)
+#define HT_E     TT(16)
+#define HT_C     TT(17)
+#define HT_A     TT(18)
+#define HT_U     TT(19)
+#define HT_I     TT(20)
+#define HT_O     TT(21)
+// #define HT_SLSH  TT(22)
+// #define HT_BSLSH TT(23)
+#define ESC_TAB  TT(24)
 
 // #define MOST TT(31)
 
@@ -18,7 +20,7 @@
 #define MO_NAV MO(_NAV)
 #define MY_NAV MO(_NAV)
 #define MO_SPE MO(_SPE)
-#define HT_ENT LT(_ACCENTS, KC_ENT)
+#define HT_ENT LT(_REG_SPE, KC_ENT)
 #define HT_SPC LT(_ACCENTS, KC_SPC)
 #define MY_LCTL KC_LCTL
 #define MY_LSFT LM(_SFT_COLEMAK_FR, MOD_LSFT)
@@ -38,6 +40,7 @@ enum {
 enum layers{
     _COLEMAK_FR,
     _ACCENTS,
+    _REG_SPE,
     _SFT_COLEMAK_FR,
     _QWERTY_REG,
     _NAV,
@@ -48,6 +51,13 @@ enum layers{
 
 enum custom_keycodes {
     MY_QUOTE = SAFE_RANGE,
+    MY_SLH,
+    MY_BSLH,
+    MY_DOLL,
+    MY_DIESE,
+    MY_EURO,
+    MY_TILD,
+    MY_BQUOT,
     // ESC_TAB,
     // MY_PVIRG,
 };
