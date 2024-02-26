@@ -58,6 +58,9 @@ enum custom_keycodes {
     MY_EURO,
     MY_TILD,
     MY_BQUOT,
+    // MY_PVRGL,
+    // MY_TWO_P,
+    // MY_EXCLM,
     // ESC_TAB,
     // MY_PVIRG,
 };
