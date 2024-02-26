@@ -183,7 +183,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        	}
 
 	        	if (is_accent_layer()) {
-	        		tap_e_grave();
+	        		tap_e_aigue();
 	        	} else {
 	        		tap_code(KC_E);
 	        	}
@@ -195,22 +195,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        	if (is_accent_layer()) {
 	        		tap_e_circ();
 	        	} else {
-	        		tap_e_aigue();
+	        		tap_e_grave();
 	        	}
 	        }
 	
 	        return false;
             
         case HT_C:
-	        if (record->tap.count) {
-	        	if (record->event.pressed) {
+	        if (record->tap.count) { // tapped
+	        	if (!record->event.pressed) {
+	        		return false;
+	        	}
+
+	        	if (is_accent_layer()) {
+	        		tap_c_ced();
+	        	} else {
 	        		tap_code(KC_C);
 	        	}
-	        } else {
-	        	if (record->event.pressed) {
-	        		tap_c_ced();
+	        } else { // held
+	        	if (!record->event.pressed) {
+	        		return false;
 	        	}
 	        }
+	
 	        return false;
 	
         case HT_A:
@@ -227,17 +234,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         
         case HT_U:
-	        if (record->tap.count) {
+          if (record->tap.count) { // tapped
 	        	if (!record->event.pressed) {
 	        		return false;
 	        	}
-        
+
 	        	if (is_accent_layer()) {
 	        		tap_u_grave();
 	        	} else {
 	        		tap_code(KC_U);
 	        	}
-	        } else {
+	        } else { // held
 	        	if (!record->event.pressed) {
 	        		return false;
 	        	}
@@ -245,7 +252,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        	if (is_accent_layer()) {
 	        		tap_u_circ();
 	        	} else {
-	        		tap_u_grave();
+
 	        	}
 	        }
         
@@ -258,13 +265,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        	}
         
 	        	if (is_accent_layer()) {
-	        		tap_i_trema();
+	        		tap_i_circ();
 	        	} else {
 	        		tap_code(KC_I);
 	        	}
 	        } else {
 	        	if (record->event.pressed) {
-	        		tap_i_circ();
+              if (is_accent_layer()) {
+	        		  tap_i_trema();
+              }
 	        	}
 	        }
         
@@ -283,7 +292,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         		}
         	} else {
         		if (record->event.pressed) {
-        			tap_o_circ();
+              if (is_accent_layer()) {
+        			  tap_o_circ();
+              }
         		}
         	}
         
