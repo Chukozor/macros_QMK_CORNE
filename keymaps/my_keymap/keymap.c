@@ -202,7 +202,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        return false;
             
         case HT_C:
-	        if (record->tap.count) { // tapped
+	        // if (record->tap.count) { // tapped
 	        	if (!record->event.pressed) {
 	        		return false;
 	        	}
@@ -212,14 +212,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        	} else {
 	        		tap_code(KC_C);
 	        	}
-	        } else { // held
+	        // } else { // held
+	        	  // if (!record->event.pressed) {
+	        	  // 	return false;
+	        	  // }
+              // if (is_accent_layer()) {
+	        		//   tap_code(KC_C);
+	        	  // } else {
+	        		//   tap_code(KC_C);
+	        	  // }
+	        // }
+	        return false;
+
+        case C_CEDIL:
+	        // if (record->tap.count) { // tapped
 	        	if (!record->event.pressed) {
 	        		return false;
 	        	}
-	        }
-	
+	        		tap_c_ced();
+	        // } else { // held
+	        	  // if (!record->event.pressed) {
+	        	  // 	return false;
+	        	  // }
+              // if (is_accent_layer()) {
+	        		//   tap_code(KC_C);
+	        	  // } else {
+	        		//   tap_code(KC_C);
+	        	  // }
+	        // }
 	        return false;
-	
+
         case HT_A:
             if (record->tap.count) {
                 if (record->event.pressed) {
@@ -477,7 +499,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                         KC_H,    KC_N,    HT_E,    HT_I,    HT_O, MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,    FR_Z,    KC_X,    HT_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+      MY_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI,  MY_NAV,  HT_SPC,     HT_ENT,  MO_SPE,  KC_RALT 
                                       //`--------------------------'  `--------------------------'
@@ -490,7 +512,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______,    HT_A, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                      _______, _______, FR_SCLN, FR_COLN, FR_EXLM, _______,
+      _______, _______, _______, C_CEDIL, _______, _______,                      _______, _______, FR_SCLN, FR_COLN, FR_EXLM, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______,  MO_SPE,   MO(_RGB), _______, _______
                                       //`--------------------------'  `--------------------------'
