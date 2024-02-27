@@ -499,7 +499,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    // _REG_SPE_FR
     [_REG_SPE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,---------------------------------------------------------.
-      _______, MY_TILD, XXXXXXX, FR_LBRC, FR_RBRC,MY_DIESE,                      FR_PERC, FR_LCBR,   FR_UNDS, FR_RCBR,ALGR(KC_9), _______,
+      _______, MY_TILD, FR_LBRC, XXXXXXX, FR_RBRC,MY_DIESE,                      FR_PERC, FR_LCBR,   FR_UNDS, FR_RCBR,ALGR(KC_9), _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
       _______,   FR_AT,  KC_EQL, KC_PMNS, KC_PPLS, MY_DOLL,                      FR_ASTR,MY_BQUOT,   FR_QUOT, FR_DQUO,   XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
