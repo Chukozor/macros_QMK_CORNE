@@ -480,7 +480,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
   }
-
+        case MY_PRT_S:
+          if (record->event.pressed) {
+            tap_code(KC_PSCR);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+  }
+        case MY_PRT_Z:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_RCTRL);
+            tap_code(KC_PSCR);
+            unregister_mods(MOD_BIT_RCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+  }
+          case MY_PRT_P:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_LSHIFT);
+            tap_code(KC_PSCR);
+            unregister_mods(MOD_BIT_LSHIFT);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+  }
         // case MY_PVIRG:
         //   if (!record->event.pressed) {
         //     return false;
@@ -516,7 +546,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // _COLEMAK_FR
     [_COLEMAK_FR] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,     FR_Q,    FR_W,    KC_F,    KC_P,    KC_G,                        KC_J,    KC_L,    HT_U,    KC_Y, FR_QUOT,  KC_TAB,
+       KC_ESC,     FR_Q,    FR_W,    KC_F,    KC_P,   KC_G,                         KC_J,    KC_L,    HT_U,    KC_Y, FR_QUOT,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                         KC_H,    KC_N,    HT_E,    HT_I,    KC_O, MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -529,11 +559,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    // _ACCENTS_COLEMAK_FR
     [_ACCENTS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, _______,MY_PRT_P, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    HT_A, _______, _______, _______, _______,                      _______, _______, _______, _______,MY_OCIRC, _______,
+      _______,    HT_A, _______, _______,MY_PRT_Z, _______,                      _______, _______, _______, _______,MY_OCIRC, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, C_CEDIL, _______, _______,                      _______, _______, FR_SCLN, FR_COLN, FR_EXLM, _______,
+      _______, _______, _______, C_CEDIL,MY_PRT_S, _______,                      _______, _______, FR_SCLN, FR_COLN, FR_EXLM, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______,  MO_SPE,   MO(_RGB), _______, _______
                                       //`--------------------------'  `--------------------------'
