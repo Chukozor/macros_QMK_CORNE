@@ -59,6 +59,7 @@ enum custom_keycodes {
     MY_TILD,
     MY_BQUOT,
     C_CEDIL,
+    MY_OCIRC,
     // MY_PVRGL,
     // MY_TWO_P,
     // MY_EXCLM,
