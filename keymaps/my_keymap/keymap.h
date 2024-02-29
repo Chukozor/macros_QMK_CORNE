@@ -71,6 +71,7 @@ enum custom_keycodes {
     MY_UNDO,
     MY_REDO,
     MY_SAVE,
+    MY_PIPE,
     // MY_PVRGL,
     // MY_TWO_P,
     // MY_EXCLM,

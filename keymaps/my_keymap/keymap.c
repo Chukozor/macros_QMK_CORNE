@@ -585,6 +585,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+        case MY_PIPE:
+          if (record->event.pressed) {
+            // add_mods(MOD_BIT_LCTRL);
+            add_mods(MOD_BIT_RALT);
+            tap_code(KC_6);
+            // tap_code(KC_KP_9);
+            // tap_code(KC_KP_6);
+            unregister_mods(MOD_BIT_RALT);
+            // unregister_mods(MOD_BIT_LCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+          }
           
         // case MY_PVIRG:
         //   if (!record->event.pressed) {
@@ -651,7 +666,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
       _______,   FR_AT,  KC_EQL, KC_PMNS, KC_PPLS, MY_DOLL,                      FR_ASTR,MY_BQUOT,   FR_QUOT, FR_DQUO,   XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
-      _______, XXXXXXX, XXXXXXX, KC_PSLS, KC_PAST, MY_EURO,                      FR_AMPR, FR_LPRN,ALGR(KC_8), FR_RPRN,   XXXXXXX, _______,
+      _______, XXXXXXX, MY_PIPE, KC_PSLS, KC_PAST, MY_EURO,                      FR_AMPR, FR_LPRN,ALGR(KC_8), FR_RPRN,   XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+----------+--------+----------+--------|
                                           _______, _______,  MO_SPE,     MO_SPE, _______, _______
                                       //`--------------------------'  `--------------------------'
