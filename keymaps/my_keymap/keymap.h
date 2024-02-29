@@ -25,7 +25,8 @@
 #define MY_LCTL KC_LCTL
 #define MY_LSFT LM(_SFT_COLEMAK_FR, MOD_LSFT)
 #define MO_COLFR TO(_COLEMAK_FR)
-#define MO_QWEREG TO(_QWERTY_REG)
+#define MO_GAMING TO(_GAMING)
+// #define MO_QWEREG TO(_QWERTY_REG)
 
 // #define MY_LCTL ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_ESC)
 
@@ -42,7 +43,7 @@ enum layers{
     _ACCENTS,
     _REG_SPE,
     _SFT_COLEMAK_FR,
-    _QWERTY_REG,
+    _GAMING,
     _NAV,
     _NOTHING_FOR_THE_MOMENT,
     _SPE,
@@ -67,6 +68,9 @@ enum custom_keycodes {
     MY_COPY,
     MY_PASTE,
     MY_CUT,
+    MY_UNDO,
+    MY_REDO,
+    MY_SAVE,
     // MY_PVRGL,
     // MY_TWO_P,
     // MY_EXCLM,

@@ -35,16 +35,14 @@ combo_t key_combos[] = {
 // TAP DANCE
 
 void dance_layers_finished (tap_dance_state_t *state, void *user_data) {
-  if (state->count == 3) {
-    layer_move(_QWERTY_REG);
-  } else if (state->count == 2) {
+if (state->count == 2) {
     layer_move(_COLEMAK_FR);
   } else if (state->count == 1) {
-    if (IS_LAYER_ON(_QWERTY_REG)) {
-      SEND_STRING(SS_TAP(X_Q));
-    } else {
+      // if (IS_LAYER_ON(_QWERTY_REG)) {
+      // SEND_STRING(SS_TAP(X_Q));
+      // } else {
       SEND_STRING(SS_TAP(X_A));
-    }
+    // }
   }
 }
 
@@ -124,9 +122,6 @@ bool oled_task_user() {
       break;
     case _SFT_COLEMAK_FR :
       oled_write("SHIFT        ", false);
-      break;
-    case _QWERTY_REG :
-      oled_write("QUERTY REG   ", false);
       break;
     case _NAV :
       oled_write("NAV          ", false);
@@ -557,6 +552,39 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+        case MY_UNDO:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_LCTRL);
+            tap_code(FR_Z);
+            unregister_mods(MOD_BIT_LCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+          }
+        case MY_REDO:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_LCTRL);
+            tap_code(KC_Y);
+            unregister_mods(MOD_BIT_LCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+          }
+        case MY_SAVE:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_LCTRL);
+            tap_code(KC_S);
+            unregister_mods(MOD_BIT_LCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+          }
           
         // case MY_PVIRG:
         //   if (!record->event.pressed) {
@@ -606,11 +634,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    // _ACCENTS_COLEMAK_FR
     [_ACCENTS] = LAYOUT_split_3x6_3(
   //,------------------------------------------------------.                    ,-----------------------------------------------------.
-      _______,  _______, _______, _______,  MY_CUT,MY_PRT_P,                      _______, _______, _______, _______, _______, _______,
+      _______,  XXXXXXX, MY_UNDO, MY_REDO,  MY_CUT,MY_PRT_P,                      XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, _______,
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,     HT_A, _______, _______, MY_COPY,MY_PRT_Z,                      _______, _______, _______, _______,MY_OCIRC, _______,
+      _______,     HT_A, XXXXXXX, MY_SAVE, MY_COPY,MY_PRT_Z,                      XXXXXXX, XXXXXXX, _______, _______,MY_OCIRC, _______,
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_ENT,MY_COMENT, _______, C_CEDIL,MY_PASTE,MY_PRT_S,                      _______, _______, FR_SCLN, FR_COLN, FR_EXLM, _______,
+       KC_ENT,MY_COMENT, XXXXXXX, C_CEDIL,MY_PASTE,MY_PRT_S,                      XXXXXXX, XXXXXXX, FR_SCLN, FR_COLN, FR_EXLM, _______,
   //|--------+---------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______,  MO_SPE,   MO(_RGB), _______, _______
                                       //`--------------------------'  `--------------------------'
@@ -643,10 +671,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   ),
 
-    // QWERTY REG, especially for keybr.com
-    [_QWERTY_REG] = LAYOUT_split_3x6_3(
+    // _GAMING for gaming
+    [_GAMING] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      ESC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,   KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  ESC_TAB,
+      ESC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  ESC_TAB,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -693,13 +721,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   ),
     [_RGB] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX,MO_QWEREG,  DT_UP,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+  //,------------------------------------------------------.                    ,-----------------------------------------------------.
+      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX,MO_GAMING,   DT_UP,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+---------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, MO_COLFR,DT_DOWN,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, DT_PRNT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+  //|--------+--------+--------+--------+---------+--------|                    |--------+--------+--------+--------+--------+--------|
+      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD,  XXXXXXX, DT_PRNT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+---------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX,  KC_SPC,    XXXXXXX, _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   )
