@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // ------------- COMBO ---------------
 
 const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
-const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
+// const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
 combo_t key_combos[] = {
     COMBO(temp_active_RGB, OSL(_RGB)),
 };
@@ -406,7 +406,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
         case MY_BSLH:
           if (record->event.pressed) {
             add_mods(MOD_BIT_LALT);
@@ -417,7 +417,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
         case MY_DOLL:
           if (record->event.pressed) {
             add_mods(MOD_BIT_LALT);
@@ -429,7 +429,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
         case MY_DIESE:
           if (record->event.pressed) {
             add_mods(MOD_BIT_LALT);
@@ -441,7 +441,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
         case MY_EURO:
           if (record->event.pressed) {
             add_mods(MOD_BIT_LALT);
@@ -455,7 +455,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
         case MY_TILD:
           if (record->event.pressed) {
             add_mods(MOD_BIT_LALT);
@@ -468,7 +468,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
         case MY_BQUOT:
           if (record->event.pressed) {
             add_mods(MOD_BIT_LALT);
@@ -480,7 +480,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
         case MY_PRT_S:
           if (record->event.pressed) {
             tap_code(KC_PSCR);
@@ -489,7 +489,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
         case MY_PRT_Z:
           if (record->event.pressed) {
             add_mods(MOD_BIT_RCTRL);
@@ -500,8 +500,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
-          case MY_PRT_P:
+          }
+        case MY_PRT_P:
           if (record->event.pressed) {
             add_mods(MOD_BIT_LSHIFT);
             tap_code(KC_PSCR);
@@ -511,7 +511,53 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
-  }
+          }
+
+        case MY_COMENT:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_RCTRL);
+            tap_code(KC_DOT);
+            unregister_mods(MOD_BIT_RCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+          }
+        case MY_COPY:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_LCTRL);
+            tap_code(KC_C);
+            unregister_mods(MOD_BIT_LCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+          }
+        case MY_CUT:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_LCTRL);
+            tap_code(KC_X);
+            unregister_mods(MOD_BIT_LCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+          }
+        case MY_PASTE:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_LCTRL);
+            tap_code(KC_V);
+            unregister_mods(MOD_BIT_LCTRL);
+            // here we override its «press» behavior (hence, return false)
+            return false;
+          } else {
+            // here we don't alter its «release» default behavior (hence, return true)
+            return true;
+          }
+          
         // case MY_PVIRG:
         //   if (!record->event.pressed) {
         //     return false;
@@ -547,25 +593,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // _COLEMAK_FR
     [_COLEMAK_FR] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,     FR_Q,    FR_W,    KC_F,    KC_P,   KC_G,                         KC_J,    KC_L,    HT_U,    KC_Y, FR_QUOT,  KC_TAB,
+       KC_ESC,    FR_Q,    FR_W,    KC_F,     KC_P,   KC_G,                         KC_J,    KC_L,    HT_U,    KC_Y, FR_QUOT,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                         KC_H,    KC_N,    HT_E,    HT_I,    KC_O, MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,  MY_NAV,  HT_SPC,     HT_ENT,  MO_SPE,  KC_RALT 
+                                          KC_LGUI,  MY_NAV,  HT_SPC,     HT_ENT,  MO_SPE,  KC_LALT 
                                       //`--------------------------'  `--------------------------'
 
   ),
    // _ACCENTS_COLEMAK_FR
     [_ACCENTS] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______, _______, _______,MY_PRT_P, _______,                      _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    HT_A, _______, _______,MY_PRT_Z, _______,                      _______, _______, _______, _______,MY_OCIRC, _______,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_ENT, _______, _______, C_CEDIL,MY_PRT_S, _______,                      _______, _______, FR_SCLN, FR_COLN, FR_EXLM, _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+  //,------------------------------------------------------.                    ,-----------------------------------------------------.
+      _______,  _______, _______, _______,  MY_CUT,MY_PRT_P,                      _______, _______, _______, _______, _______, _______,
+  //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      _______,     HT_A, _______, _______, MY_COPY,MY_PRT_Z,                      _______, _______, _______, _______,MY_OCIRC, _______,
+  //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+       KC_ENT,MY_COMENT, _______, C_CEDIL,MY_PASTE,MY_PRT_S,                      _______, _______, FR_SCLN, FR_COLN, FR_EXLM, _______,
+  //|--------+---------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______,  MO_SPE,   MO(_RGB), _______, _______
                                       //`--------------------------'  `--------------------------'
 
