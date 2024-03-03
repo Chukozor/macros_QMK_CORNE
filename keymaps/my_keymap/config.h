@@ -48,11 +48,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_VAL_STEP 17
 #endif
 
-#define OLED_BRIGHTNESS 20
+#define OLED_BRIGHTNESS 10
 #define SPLIT_LED_STATE_ENABLE
 #define SPLIT_MODS_ENABLE
 #define SPLIT_WPM_ENABLE
 #define SPLIT_OLED_ENABLE
+#define OLED_TIMEOUT 10000
 
 #define TAPPING_TERM 190
 // #define PERMISSIVE_HOLD
