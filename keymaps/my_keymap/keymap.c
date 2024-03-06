@@ -34,17 +34,17 @@ combo_t key_combos[] = {
 // ------------- COMBO ---------------
 // TAP DANCE
 
-void dance_layers_finished (tap_dance_state_t *state, void *user_data) {
-if (state->count == 2) {
-    layer_move(_COLEMAK_FR);
-  } else if (state->count == 1) {
-      // if (IS_LAYER_ON(_QWERTY_REG)) {
-      // SEND_STRING(SS_TAP(X_Q));
-      // } else {
-      SEND_STRING(SS_TAP(X_A));
-    // }
-  }
-}
+// void dance_layers_finished (tap_dance_state_t *state, void *user_data) {
+// if (state->count == 2) {
+//     layer_move(_COLEMAK_FR);
+//   } else if (state->count == 1) {
+//       // if (IS_LAYER_ON(_QWERTY_REG)) {
+//       // SEND_STRING(SS_TAP(X_Q));
+//       // } else {
+//       SEND_STRING(SS_TAP(X_A));
+//     // }
+//   }
+// }
 
 // void dance_cln_reset (qk_tap_dance_state_t *state, void *user_data) {
 //   if (state->count == 1) {
@@ -59,9 +59,102 @@ if (state->count == 2) {
 //  [CT_CLN] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_cln_finished, dance_cln_reset)
 // };
 
-tap_dance_action_t tap_dance_actions[] = {
-    [TD_Q] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_layers_finished, NULL)
+// tap_dance_action_t tap_dance_actions[] = {
+//     [TD_Q] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_layers_finished, NULL)
+// };
+
+
+
+
+
+// -------------------------------------------------------------------------
+typedef struct {
+  bool is_press_action;
+  int state;
+} tap;
+
+//Define a type for as many tap dance states as you need
+enum {
+  SINGLE_TAP = 1,
+  SINGLE_HOLD = 2,
+  DOUBLE_TAP = 3
 };
+
+enum {
+  CAPS_LCK = 0     //Our custom tap dance key; add any other tap dance keys to this enum 
+};
+
+//Declare the functions to be used with your tap dance key(s)
+
+//Function associated with all tap dances
+int cur_dance (tap_dance_state_t *state);
+
+//Functions associated with individual tap dances
+void ql_finished (tap_dance_state_t *state, void *user_data);
+void ql_reset (tap_dance_state_t *state, void *user_data);
+// -------------------------------------------------------------------------
+//Determine the current tap dance state
+int cur_dance (tap_dance_state_t *state) {
+  if (state->count == 1) {
+    if (!state->pressed) {
+      return SINGLE_TAP;
+    } else {
+      return SINGLE_HOLD;
+    }
+  } else if (state->count == 2) {
+    return DOUBLE_TAP;
+  }
+  else return 8;
+}
+
+//Initialize tap structure associated with example tap dance key
+static tap ql_tap_state = {
+  .is_press_action = true,
+  .state = 0
+};
+
+//Functions that control what our tap dance key does
+void ql_finished (tap_dance_state_t *state, void *user_data) {
+  ql_tap_state.state = cur_dance(state);
+  switch (ql_tap_state.state) {
+    case SINGLE_TAP: 
+      tap_code(KC_QUOT); 
+      break;
+    case SINGLE_HOLD: 
+      layer_on(_CAPS_LOCK);
+      // TODO moi
+      add_mods(MOD_BIT_LSHIFT);
+      // tap_code(KC_PSCR);
+      // TODO moi
+      break;
+    case DOUBLE_TAP: 
+      //check to see if the layer is already set
+      if (layer_state_is(_CAPS_LOCK)) {
+        //if already set, then switch it off
+        layer_off(_CAPS_LOCK);
+      } else { 
+        //if not already set, then switch the layer on
+        layer_on(_CAPS_LOCK);
+      }
+      break;
+  }
+}
+
+void ql_reset (tap_dance_state_t *state, void *user_data) {
+  //if the key was held down and now is released then switch off the layer
+  if (ql_tap_state.state==SINGLE_HOLD) {
+    // layer_off(_CAPS_LOCK);
+    unregister_mods(MOD_BIT_LSHIFT);
+  }
+  ql_tap_state.state = 0;
+}
+
+//Associate our tap dance key with its functionality
+tap_dance_action_t tap_dance_actions[] = {
+  [CAPS_LCK] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset)
+};
+// -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 
 
 // -------------------------------------------------------------------------
@@ -117,6 +210,9 @@ bool oled_task_user() {
     case _ACCENTS :
       oled_write("ACCENTS      ", false);
       break;
+    case _CAPS_LOCK :
+      oled_write("CAPS_LOCK    ", false);
+      break;
     case _REG_SPE :
       oled_write("SPE_CHAR REG ", false);
       break;
@@ -152,6 +248,10 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &ko_make_with_layers(MOD_MASK_SHIFT, FR_DOT,  FR_COLN, 1 << _COLEMAK_FR),
     &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUES, FR_EXLM, 1 << _COLEMAK_FR),
     &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUOT, FR_DQUO, 1 << _COLEMAK_FR),
+    &ko_make_with_layers(MOD_MASK_SHIFT, FR_COMM, FR_SCLN, 1 << _CAPS_LOCK), // check if it works
+    &ko_make_with_layers(MOD_MASK_SHIFT, FR_DOT,  FR_COLN, 1 << _CAPS_LOCK),
+    &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUES, FR_EXLM, 1 << _CAPS_LOCK),
+    &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUOT, FR_DQUO, 1 << _CAPS_LOCK),
     // &ko_make_with_layers(MOD_MASK_SHIFT, FR_AT,   FR_AGRV, 1 << 2);
     
     NULL // Null terminate the array of overrides!
@@ -640,7 +740,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                         KC_H,    KC_N,    HT_E,    HT_I,    KC_O, MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+ TD(CAPS_LCK),    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI,  MY_NAV,  HT_SPC,     HT_ENT,  MO_SPE,  KC_LALT 
                                       //`--------------------------'  `--------------------------'
@@ -656,6 +756,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_ENT,MY_COMENT, XXXXXXX, C_CEDIL,MY_PASTE,MY_PRT_S,                      XXXXXXX, XXXXXXX, FR_SCLN, FR_COLN, FR_EXLM, _______,
   //|--------+---------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______,  MO_SPE,   MO(_RGB), _______, _______
+                                      //`--------------------------'  `--------------------------'
+
+  ),
+   // _CAPS_LOCK
+    [_CAPS_LOCK] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.M
+       KC_ESC, S(FR_Q), S(FR_W), S(KC_F), S(KC_P), S(KC_G),                      S(KC_J), S(KC_L), S(KC_U), S(KC_Y), FR_QUOT,  KC_TAB,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      MY_LCTL, S(FR_A), S(KC_R), S(KC_S), S(KC_T), S(KC_D),                      S(KC_H), S(KC_N), S(KC_E), S(KC_I), S(KC_O), MY_LCTL,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+ TD(CAPS_LCK), S(FR_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          KC_LGUI,  MY_NAV,  HT_SPC,     HT_ENT,  MO_SPE,  KC_LALT 
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -708,7 +821,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, S(KC_1), S(KC_2), S(KC_3),  KC_ENT,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,    _______, MY_NAV, _______
+                                          _______, _______, _______,    KC_LCTL, MY_NAV, _______
                                       //`--------------------------'  `--------------------------'
 
   ),

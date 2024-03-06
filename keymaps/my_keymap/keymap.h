@@ -30,17 +30,19 @@
 
 // #define MY_LCTL ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_ESC)
 
-enum {
- TD_Q=0,
-//  CT_CLN,
-//  CT_EGG,
-//  CT_FLSH,
-//  X_TAP_DANCE
-};
+// enum {
+//  TD_Q=0,
+
+// //  CT_CLN,
+// //  CT_EGG,
+// //  CT_FLSH,
+// //  X_TAP_DANCE
+// };
 
 enum layers{
     _COLEMAK_FR,
     _ACCENTS,
+    _CAPS_LOCK,
     _REG_SPE,
     _SFT_COLEMAK_FR,
     _GAMING,
@@ -71,6 +73,7 @@ enum custom_keycodes {
     MY_UNDO,
     MY_REDO,
     MY_SAVE,
+    // MY_SRCH,
     MY_PIPE,
     // MY_PVRGL,
     // MY_TWO_P,
