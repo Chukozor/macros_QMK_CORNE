@@ -123,7 +123,8 @@ void ql_finished (tap_dance_state_t *state, void *user_data) {
     case SINGLE_HOLD: 
       layer_on(_SFT_COLEMAK_FR);
       // TODO moi
-      add_mods(MOD_BIT_LSHIFT);
+      register_mods(MOD_BIT_LSHIFT);
+      // add_mods(MOD_BIT_LSHIFT);
       // tap_code(KC_PSCR);
       // TODO moi
       break;
