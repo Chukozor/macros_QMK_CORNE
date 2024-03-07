@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap_french.h"
 #include "helpers.h"
 #include "french_symbols.h"
+#include "tap_dance.h"
 
 
 // ------------- COMBO ---------------
@@ -32,158 +33,9 @@ combo_t key_combos[] = {
 };
 
 // ------------- COMBO ---------------
-// TAP DANCE
 
-// void dance_layers_finished (tap_dance_state_t *state, void *user_data) {
-// if (state->count == 2) {
-//     layer_move(_COLEMAK_FR);
-//   } else if (state->count == 1) {
-//       // if (IS_LAYER_ON(_QWERTY_REG)) {
-//       // SEND_STRING(SS_TAP(X_Q));
-//       // } else {
-//       SEND_STRING(SS_TAP(X_A));
-//     // }
-//   }
-// }
+// -----------------------------------
 
-// void dance_cln_reset (qk_tap_dance_state_t *state, void *user_data) {
-//   if (state->count == 1) {
-//     unregister_code (KC_LCTL);
-//     unregister_code (KC_SCLN);
-//   } else {
-//     unregister_code (KC_SCLN);
-//   }
-// }
-
-// qk_tap_dance_action_t tap_dance_actions[] = {
-//  [CT_CLN] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_cln_finished, dance_cln_reset)
-// };
-
-// tap_dance_action_t tap_dance_actions[] = {
-//     [TD_Q] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, dance_layers_finished, NULL)
-// };
-
-
-
-
-
-// -------------------------------------------------------------------------
-typedef struct {
-  bool is_press_action;
-  int state;
-} tap;
-
-//Define a type for as many tap dance states as you need
-enum {
-  SINGLE_TAP = 1,
-  SINGLE_HOLD = 2,
-  DOUBLE_TAP = 3
-};
-
-enum {
-  CAPS_LCK = 0     //Our custom tap dance key; add any other tap dance keys to this enum 
-};
-
-//Declare the functions to be used with your tap dance key(s)
-
-//Function associated with all tap dances
-int cur_dance (tap_dance_state_t *state);
-
-//Functions associated with individual tap dances
-void ql_finished (tap_dance_state_t *state, void *user_data);
-void ql_reset (tap_dance_state_t *state, void *user_data);
-// -------------------------------------------------------------------------
-//Determine the current tap dance state
-int cur_dance (tap_dance_state_t *state) {
-  if (state->count == 1) {
-    if (!state->pressed) {
-      return SINGLE_TAP;
-    } else {
-      return SINGLE_HOLD;
-    }
-  } else if (state->count == 2) {
-    return DOUBLE_TAP;
-  }
-  else return 8;
-}
-
-//Initialize tap structure associated with example tap dance key
-static tap ql_tap_state = {
-  .is_press_action = true,
-  .state = 0
-};
-
-//Functions that control what our tap dance key does
-void ql_finished (tap_dance_state_t *state, void *user_data) {
-  ql_tap_state.state = cur_dance(state);
-  switch (ql_tap_state.state) {
-    case SINGLE_TAP: 
-      tap_code(KC_QUOT); 
-      break;
-    case SINGLE_HOLD: 
-      layer_on(_SFT_COLEMAK_FR);
-      // TODO moi
-      register_mods(MOD_BIT_LSHIFT);
-      // add_mods(MOD_BIT_LSHIFT);
-      // tap_code(KC_PSCR);
-      // TODO moi
-      break;
-    case DOUBLE_TAP: 
-      //check to see if the layer is already set
-      if (layer_state_is(_CAPS_LOCK)) {
-        //if already set, then switch it off
-        layer_off(_CAPS_LOCK);
-      } else { 
-        //if not already set, then switch the layer on
-        layer_on(_CAPS_LOCK);
-      }
-      break;
-  }
-}
-
-void ql_reset (tap_dance_state_t *state, void *user_data) {
-  //if the key was held down and now is released then switch off the layer
-  if (ql_tap_state.state==SINGLE_HOLD) {
-    layer_off(_SFT_COLEMAK_FR);
-    unregister_mods(MOD_BIT_LSHIFT);
-  }
-  ql_tap_state.state = 0;
-}
-
-//Associate our tap dance key with its functionality
-tap_dance_action_t tap_dance_actions[] = {
-  [CAPS_LCK] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset)
-};
-// -------------------------------------------------------------------------
-// -------------------------------------------------------------------------
-
-
-// -------------------------------------------------------------------------
-
-// bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-//     for (uint8_t i = led_min; i < led_max; i++) {
-//         switch(get_highest_layer(layer_state|default_layer_state)) {
-//             case 0:
-//                 rgb_matrix_set_color(i, RGB_RED);
-//                 break;
-//             // case 1:
-//             //     rgb_matrix_set_color(i, RGB_YELLOW);
-//             //     break;
-//             case 1:
-//                 rgb_matrix_set_color(i, RGB_BLUE);
-//                 break;
-//             case 2:
-//                 rgb_matrix_set_color(i, RGB_YELLOW);
-//                 break;
-//             case 3:
-//                 rgb_matrix_set_color(i, RGB_GREEN);
-//                 break;
-//             default:
-//                 break;
-//         }
-//     }
-//     return false;
-// }
 
 
 
