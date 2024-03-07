@@ -42,9 +42,9 @@
 enum layers{
     _COLEMAK_FR,
     _ACCENTS,
+    _SFT_COLEMAK_FR,
     _CAPS_LOCK,
     _REG_SPE,
-    _SFT_COLEMAK_FR,
     _GAMING,
     _NAV,
     _NOTHING_FOR_THE_MOMENT,

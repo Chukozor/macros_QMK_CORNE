@@ -121,7 +121,7 @@ void ql_finished (tap_dance_state_t *state, void *user_data) {
       tap_code(KC_QUOT); 
       break;
     case SINGLE_HOLD: 
-      layer_on(_CAPS_LOCK);
+      layer_on(_SFT_COLEMAK_FR);
       // TODO moi
       add_mods(MOD_BIT_LSHIFT);
       // tap_code(KC_PSCR);
@@ -143,7 +143,7 @@ void ql_finished (tap_dance_state_t *state, void *user_data) {
 void ql_reset (tap_dance_state_t *state, void *user_data) {
   //if the key was held down and now is released then switch off the layer
   if (ql_tap_state.state==SINGLE_HOLD) {
-    // layer_off(_CAPS_LOCK);
+    layer_off(_SFT_COLEMAK_FR);
     unregister_mods(MOD_BIT_LSHIFT);
   }
   ql_tap_state.state = 0;
@@ -252,6 +252,10 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &ko_make_with_layers(MOD_MASK_SHIFT, FR_DOT,  FR_COLN, 1 << _CAPS_LOCK),
     &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUES, FR_EXLM, 1 << _CAPS_LOCK),
     &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUOT, FR_DQUO, 1 << _CAPS_LOCK),
+    &ko_make_with_layers(MOD_MASK_SHIFT, FR_COMM, FR_SCLN, 1 << _SFT_COLEMAK_FR), // check if it works
+    &ko_make_with_layers(MOD_MASK_SHIFT, FR_DOT,  FR_COLN, 1 << _SFT_COLEMAK_FR),
+    &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUES, FR_EXLM, 1 << _SFT_COLEMAK_FR),
+    &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUOT, FR_DQUO, 1 << _SFT_COLEMAK_FR),
     // &ko_make_with_layers(MOD_MASK_SHIFT, FR_AT,   FR_AGRV, 1 << 2);
     
     NULL // Null terminate the array of overrides!
@@ -759,6 +763,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
 
   ),
+   // _SFT_LR_COLEMAK_FR
+    [_SFT_COLEMAK_FR] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+       KC_ESC,    FR_Q,    FR_W,    KC_F,     KC_P,   KC_G,                         KC_J,    KC_L,    KC_U,    KC_Y, FR_QUOT,  KC_TAB,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      MY_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                         KC_H,    KC_N,    KC_E,    KC_I,    KC_O, MY_LCTL,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+ TD(CAPS_LCK),    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          KC_LGUI,  MY_NAV,  HT_SPC,     HT_ENT,  MO_SPE,  KC_LALT 
+                                      //`--------------------------'  `--------------------------'
+  ),
    // _CAPS_LOCK
     [_CAPS_LOCK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.M
@@ -782,19 +798,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, XXXXXXX, MY_PIPE, KC_PSLS, KC_PAST, MY_EURO,                      FR_AMPR, FR_LPRN,ALGR(KC_8), FR_RPRN,   XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+----------+--------+----------+--------|
                                           _______, _______,  MO_SPE,     MO_SPE, _______, _______
-                                      //`--------------------------'  `--------------------------'
-
-  ),
-   // _SFT_LR_COLEMAK_FR
-    [_SFT_COLEMAK_FR] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______,MY_QUOTE,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
 
   ),
