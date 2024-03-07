@@ -58,3 +58,16 @@
 
 // -------------------------------------------------------------------------
 
+// // This globally defines all key overrides to be used
+// const key_override_t **key_overrides = (const key_override_t *[]){
+//     &ko_make_with_layers(MOD_MASK_SHIFT, FR_COMM, FR_SCLN,  1 << 2), 
+//     &ko_make_with_layers(MOD_MASK_SHIFT, FR_DOT,  FR_COLN, 1 << 2),
+//     &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUES, FR_EXLM, 1 << 2),
+//     &ko_make_with_layers(MOD_MASK_SHIFT, FR_QUOT, FR_DQUO, 1 << 2),
+//     // &ko_make_with_layers(MOD_MASK_SHIFT, FR_AT,   FR_AGRV, 1 << 2);
+    
+//     NULL // Null terminate the array of overrides!
+// };
+
+// -------------------------------------------------------------------------
+
