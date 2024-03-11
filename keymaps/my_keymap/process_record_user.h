@@ -429,7 +429,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
-          
+        
+        case CSTM_ENT:
+          if (record->tap.count) { // Tap
+            if (record->event.pressed) {
+              // your logic when pressed
+              if (IS_LAYER_ON(_ACCENTS)) {
+                SEND_STRING(SS_LSFT(SS_TAP(X_ENT)));
+              } else {
+                tap_code(KC_ENT);
+              }
+            }
+          } else { // Hold
+            if (record->event.pressed) {
+              // your logic when pressed
+              if (IS_LAYER_ON(_ACCENTS)) {
+                layer_on(_RGB);
+              } else {
+                layer_on(_REG_SPE);
+              }
+            } else {
+              // your logic when released
+              layer_off(_REG_SPE);
+              layer_off(_RGB);
+            }
+          }
+          return false;
+
         // case MY_PVIRG:
         //   if (!record->event.pressed) {
         //     return false;
