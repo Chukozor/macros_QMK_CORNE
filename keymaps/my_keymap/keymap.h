@@ -8,6 +8,7 @@
 #define HT_U     TT(19)
 #define HT_I     TT(20)
 #define HT_O     TT(21)
+// #define HT_T     TT(22)
 // #define HT_SLSH  TT(22)
 // #define HT_BSLSH TT(23)
 #define ESC_TAB  TT(24)
@@ -18,12 +19,12 @@
 #define MO_NUM MO(_NUMPAD)
 #define MO_RGB MO(_RGB)
 #define MO_NAV MO(_NAV)
-#define MY_NAV MO(_NAV)
+// #define MY_NAV MO(_NAV)
 #define MO_SPE MO(_SPE)
 #define HT_ENT LT(_REG_SPE, KC_ENT)
 #define HT_SPC LT(_ACCENTS, KC_SPC)
 #define MY_LCTL KC_LCTL
-#define MY_LSFT LM(_SFT_COLEMAK_FR, MOD_LSFT)
+// #define MY_LSFT LM(_SFT_COLEMAK_FR, MOD_LSFT)
 #define MO_COLFR TO(_COLEMAK_FR)
 #define MO_GAMING TO(_GAMING)
 
@@ -45,9 +46,11 @@
 
 enum layers{
     _COLEMAK_FR,
+    _LATEX,
     _SFT_COLEMAK_FR,
     _CAPS_LOCK,
     _ACCENTS,
+    _F_KEYS,
     _REG_SPE,
     _GAMING,
     _NAV,

@@ -42,6 +42,12 @@ bool oled_task_user() {
     case _RGB :
       oled_write("RGB          ", false);
       break;
+    case _F_KEYS :
+      oled_write("_F_KEYS      ", false);
+      break;
+    case _LATEX :
+      oled_write("_LATEX       ", false);
+      break;
     // case 4 :
     //   oled_write("", false);
     //   break;
