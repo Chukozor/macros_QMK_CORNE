@@ -100,8 +100,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         
 	        	if (is_accent_layer()) {
 	        		tap_u_circ();
-	        	} else {
-              tap_code(KC_U);
 	        	}
 	        }
         
@@ -124,8 +122,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               // your logic when pressed
               if (is_accent_layer()) {
 	        		  tap_i_trema();
-              } else {
-                tap_code(KC_I);
               }
 	        	}
 	        }
