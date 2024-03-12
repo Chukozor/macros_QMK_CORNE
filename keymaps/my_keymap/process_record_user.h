@@ -106,8 +106,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        return false;
         
         case HT_I:
-	        if (record->tap.count) {
+	        if (record->tap.count) { // Tap
 	        	if (!record->event.pressed) {
+              // your logic when pressed
 	        		return false;
 	        	}
         
@@ -116,8 +117,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        	} else {
 	        		tap_code(KC_I);
 	        	}
-	        } else {
+	        } else { // Hold
 	        	if (record->event.pressed) {
+              // your logic when pressed
               if (is_accent_layer()) {
 	        		  tap_i_trema();
               }
