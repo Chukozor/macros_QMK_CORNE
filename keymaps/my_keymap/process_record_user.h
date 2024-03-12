@@ -498,6 +498,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 160;
         case HT_SPC:
             return 190;
+        case MY_NAV:
+            return 200;
         default:
             return g_tapping_term;
     }
