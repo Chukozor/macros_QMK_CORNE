@@ -496,7 +496,22 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         //    return g_tapping_term + 1250;
         case MY_LSFT:
             return 160;
+        case HT_SPC:
+            return 190;
         default:
             return g_tapping_term;
+    }
+}
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case HT_E:
+            // Do not force the mod-tap key press to be handled as a modifier
+            // if any other key was pressed while the mod-tap key is held down.
+            return false;
+        default:
+            // Force the dual-role key press to be handled as a modifier if any
+            // other key was pressed while the mod-tap key is held down.
+            return true;
     }
 }

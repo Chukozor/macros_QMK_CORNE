@@ -55,7 +55,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_OLED_ENABLE
 #define OLED_TIMEOUT 10000
 
-#define TAPPING_TERM 190
+#define TAPPING_TERM 160
 #define TAPPING_TERM_PER_KEY
 // #define PERMISSIVE_HOLD
 #define HOLD_ON_OTHER_KEY_PRESS
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
