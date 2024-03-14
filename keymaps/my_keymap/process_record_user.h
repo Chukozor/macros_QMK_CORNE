@@ -511,6 +511,22 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             // Do not force the mod-tap key press to be handled as a modifier
             // if any other key was pressed while the mod-tap key is held down.
             return false;
+        case HT_I:
+            // Do not force the mod-tap key press to be handled as a modifier
+            // if any other key was pressed while the mod-tap key is held down.
+            return false;
+        case HT_U:
+            // Do not force the mod-tap key press to be handled as a modifier
+            // if any other key was pressed while the mod-tap key is held down.
+            return false;
+        case HT_O:
+            // Do not force the mod-tap key press to be handled as a modifier
+            // if any other key was pressed while the mod-tap key is held down.
+            return false;
+        case HT_A:
+            // Do not force the mod-tap key press to be handled as a modifier
+            // if any other key was pressed while the mod-tap key is held down.
+            return false;
         default:
             // Force the dual-role key press to be handled as a modifier if any
             // other key was pressed while the mod-tap key is held down.
