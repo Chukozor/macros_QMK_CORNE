@@ -18,12 +18,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               // your logic when released
 	        		return false;
 	        	}
-        
-	        	if (is_accent_layer()) {
-	        		tap_e_circ();
-	        	} else {
-	        		tap_e_grave();
-	        	}
+            
+            if (record->tap.interrupted) {
+              if (is_accent_layer()) {
+                tap_e_aigue();
+              } else {
+                tap_code(KC_E);
+              }
+            } else {
+              if (is_accent_layer()) {
+	        	  	tap_e_circ();
+	        	  } else {
+	        	  	tap_e_grave();
+	        	  }
+            }
 	        }
 	
 	        return false;
@@ -94,15 +102,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        		tap_code(KC_U);
 	        	}
 	        } else { // held
-	        	if (!record->event.pressed) {
-	        		return false;
+
+            if (record->event.pressed) {
+              // logic when pressed
+              if (record->tap.interrupted) {
+                // logic when interrupted
+                tap_u_grave();
+              } else {
+                // logic when not interrupted
+                if (is_accent_layer()) {
+	        		    tap_u_circ();
 	        	}
-        
-	        	if (is_accent_layer()) {
-	        		tap_u_circ();
-	        	}
+              }
+            } else {
+              // logic when released
+              return false;
+            }
 	        }
-        
 	        return false;
         
         case HT_I:
@@ -117,15 +133,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        	} else {
 	        		tap_code(KC_I);
 	        	}
-	        } else { // Hold
-	        	if (record->event.pressed) {
-              // your logic when pressed
-              if (is_accent_layer()) {
-	        		  tap_i_trema();
-              }
+	        } else { // held
+
+            if (record->event.pressed) {
+              // logic when pressed
+              if (record->tap.interrupted) {
+                // logic when interrupted
+                tap_i_circ();
+              } else {
+                // logic when not interrupted
+                if (is_accent_layer()) {
+	        		    tap_i_trema();
 	        	}
+              }
+            } else {
+              // logic when released
+              return false;
+            }
 	        }
-        
 	        return false;
 
         case HT_O:
