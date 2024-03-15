@@ -78,14 +78,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	        return false;
 
         case HT_A:
-            if (record->tap.count) {
+            if (record->tap.count) { // tapped
                 if (record->event.pressed) {
                     tap_a_grave();
                 }
             } else {
-                if (record->event.pressed) {
-                    tap_a_circ();
-                }
+              if (!record->event.pressed) {
+              // your logic when released
+	        		return false;
+	        	  }
+              if (record->tap.interrupted) {
+                // logic when interrupted
+                tap_a_grave();
+              } else {
+                tap_a_circ();
+                // logic when not interrupted
+              }
             }
         
             return false;
