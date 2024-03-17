@@ -12,3 +12,7 @@ bool is_accent_layer(void) {
 bool is_shift_layer(void) {
   return IS_LAYER_ON(_SFT_COLEMAK_FR);
 }
+
+bool is_colemak_layer(void) {
+  return IS_LAYER_ON(_COLEMAK_FR);
+}

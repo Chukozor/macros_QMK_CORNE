@@ -27,13 +27,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // ------------- COMBO ---------------
 
 const uint16_t PROGMEM temp_active_RGB[] = {MY_ENT, HT_SPC, COMBO_END};
-const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
-const uint16_t PROGMEM bis_x_temp_active_RGB[] = {CSTM_ENT, HT_SPC, COMBO_END};
-// const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
+// const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
+// const uint16_t PROGMEM bis_x_temp_active_RGB[] = {CSTM_ENT, HT_SPC, COMBO_END};
+// // const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
 combo_t key_combos[] = {
     COMBO(temp_active_RGB, OSL(_RGB)),
-    COMBO(bis_temp_active_RGB, OSL(_RGB)),
-    COMBO(bis_x_temp_active_RGB, OSL(_RGB)),
+//     COMBO(bis_temp_active_RGB, OSL(_RGB)),
+//     COMBO(bis_x_temp_active_RGB, OSL(_RGB)),
 };
 
 // ------------- END COMBO ---------------

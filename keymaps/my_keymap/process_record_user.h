@@ -469,27 +469,72 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           if (record->tap.count) { // Tap
             if (record->event.pressed) {
               // your logic when pressed
-              if (IS_LAYER_ON(_ACCENTS)) {
+              if (is_accent_layer()) {
                 SEND_STRING(SS_LSFT(SS_TAP(X_ENT)));
               } else {
                 tap_code(KC_ENT);
               }
             }
           } else { // Hold
-            if (record->event.pressed) {
-              // your logic when pressed
-              if (IS_LAYER_ON(_ACCENTS)) {
-                layer_on(_RGB);
-              } else {
-                layer_on(_REG_SPE);
-              }
-            } else {
-              // your logic when released
+            if (record->event.pressed) { // pressed
+              // if (!record->tap.interrupted) {
+                if (is_accent_layer()) {
+                  layer_on(_RGB);
+                } else {
+                  layer_on(_REG_SPE);
+                }
+              // } 
+            //   else { // interrupted
+            //     if (is_accent_layer()) {
+            //       layer_on(_RGB);
+            //     } else {
+            //       layer_on(_CAPS_LOCK);
+            //     }
+            //   }
+            }
+            else { // released
               layer_off(_REG_SPE);
               layer_off(_RGB);
             }
+            return false;
           }
           return false;
+        
+        case HT_SPC:
+	        if (record->tap.count) { // tapped
+	        	if (!record->event.pressed) {
+              // your logic when released
+	        		return false;
+	        	}
+            if (is_colemak_layer()) {
+              tap_code(KC_SPC);
+            } else {
+              tap_code(KC_NO);
+            }
+	        	// if (is_accent_layer()) {
+	        	// 	tap_e_aigue();
+	        	// } else {
+	        	// 	tap_code(KC_SPC);
+	        	// }
+
+	        } else { // held
+            if (record->event.pressed) {
+              if (record->tap.interrupted) {
+              // if (is_colemak_layer()) {
+                layer_on(_ACCENTS);
+              // } else {
+              //   tap_code(KC_NO);
+              // }
+              } else {
+                layer_on(_ACCENTS);
+              }
+            } else if (!record->event.pressed) {
+              layer_off(_ACCENTS);
+              return false;
+            }
+	        }
+	
+	        return false;
 
         // case MY_PVIRG:
         //   if (!record->event.pressed) {

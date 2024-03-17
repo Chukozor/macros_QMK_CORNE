@@ -2,3 +2,4 @@
 
 bool is_accent_layer(void);
 bool is_shift_layer(void);
+bool is_colemak_layer(void);
