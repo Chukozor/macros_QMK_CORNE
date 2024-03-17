@@ -509,7 +509,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (is_colemak_layer()) {
               tap_code(KC_SPC);
             } else {
-              tap_code(KC_NO);
+              // tap_code(KC_NO);
+              tap_code(KC_SPC);
             }
 	        	// if (is_accent_layer()) {
 	        	// 	tap_e_aigue();
