@@ -576,8 +576,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MY_LSFT:
             return 160;
         case HT_SPC:
-            return 190;
+            return 210;
         case MY_NAV:
+            return 200;
+        case HT_A:
             return 200;
         default:
             return g_tapping_term;
