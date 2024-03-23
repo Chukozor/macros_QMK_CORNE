@@ -37,7 +37,7 @@ bool oled_task_user() {
     //   oled_write("NUMPAD       ", false);
     //   break;
     case _SPE :
-      oled_write("SPE_CHAR RARE ", false);
+      oled_write("SPE_CHAR RARE", false);
       break;
     case _RGB :
       oled_write("RGB          ", false);
@@ -47,6 +47,9 @@ bool oled_task_user() {
       break;
     case _LATEX :
       oled_write("_LATEX       ", false);
+      break;
+    case _MULTIMEDIA :
+      oled_write("_MULTIMEDIA  ", false);
       break;
     // case 4 :
     //   oled_write("", false);

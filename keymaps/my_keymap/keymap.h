@@ -58,6 +58,7 @@ enum layers{
     _NAV,
     _NOTHING_FOR_THE_MOMENT,
     _SPE,
+    _MULTIMEDIA,
     _RGB    
 };
 
