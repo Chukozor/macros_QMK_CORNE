@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          MY_NAV,  HT_SPC, KC_LGUI,     KC_LALT,CSTM_ENT, XXXXXXX
+                                          MY_NAV,  HT_SPC, KC_LGUI,     KC_LALT,CSTM_ENT, MO(_RIEN)
                                       //`--------------------------'  `--------------------------'
   ),
     // _GAMING for gaming
