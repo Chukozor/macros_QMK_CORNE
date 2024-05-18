@@ -60,6 +60,9 @@ bool oled_task_user() {
     case _RGB :
       oled_write("RGB          ", false);
       break;
+    case _RIEN :
+      oled_write("RIEN          ", false);
+      break;
     // case 4 :
     //   oled_write("", false);
     //   break;
