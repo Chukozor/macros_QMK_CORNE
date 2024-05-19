@@ -282,96 +282,128 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ),
 
 void render_layer_status(void) {
-    switch (get_highest_layer(layer_state)){
-        case _COLEMAK_FR :
-        oled_write("COLEMAK FR   ", false);
-        break;
-        case _GAMING :
-        oled_write("GAMING       ", false);
-        break;
-        case _LATEX :
-        oled_write("LATEX        ", false);
-        break;
-        case _SFT_COLEMAK_FR :
-        oled_write("SFT          ", false);
-        break;
-        case _CAPS_LOCK :
-        oled_write("CAPS_LOCK    ", false);
-        break;
-        case _OSL_SHIFT :
-        oled_write("OSL_SHIFT    ", false);
-        break;
-        case _F_KEYS :
-        oled_write("F_KEYS       ", false);
-        break;
-        case _WEB_BROWSER :
-        oled_write("WEB_BROWSER  ", false);
-        break;
-        case _NOTHING_FOR_THE_MOMENT :
-        oled_write("NOTHING      ", false);
-        break;
-        case _NAV :
-        oled_write("NAV          ", false);
-        break;
-        case _OP_NAV :
-        oled_write("OP_NAV       ", false);
-        break;
-        case _ACCENTS :
-        oled_write("ACCENTS      ", false);
-        break;
-        case _REG_SPE :
-        oled_write("REG_SPE      ", false);
-        break;
-        case _MULTIMEDIA :
-        oled_write("_MULTIMEDIA  ", false);
-        break;
-        case _RGB :
-        oled_write("RGB          ", false);
-        break;
-        case _RIEN :
-        oled_write("RIEN          ", false);
-        break;
-    }
+  switch (get_highest_layer(layer_state)){
+    case _COLEMAK_FR :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("COLE-  MAK       FR                           ", false);
+      break;
+    case _GAMING :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" GAME                                        ", false);
+      break;
+    case _LATEX :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("LATEX                                        ", false);
+      break;
+    case _SFT_COLEMAK_FR :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" SFT                                         ", false);
+      break;
+    case _CAPS_LOCK :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" CAPS_LOCK                                   ", false);
+      break;
+    case _OSL_SHIFT :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" OSL_SHIFT                                   ", false);
+      break;
+    case _F_KEYS :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("  F_  KEYS                                   ", false);
+      break;
+    case _WEB_BROWSER :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" WEB_                                        ", false);
+      break;
+    case _NOTHING_FOR_THE_MOMENT :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("RIEN  ATM                                    ", false);
+      break;
+    case _NAV :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("  NAV                                        ", false);
+      break;
+    case _OP_NAV :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("OPERA TEUR                                   ", false);
+      break;
+    case _ACCENTS :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("ACCE-  NTS                                   ", false);
+      break;
+    case _REG_SPE :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("  REG _SPE                                   ", false);
+      break;
+    case _MULTIMEDIA :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("MULTIMEDIA                                   ", false);
+      break;
+    case _RGB :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" RGB                                         ", false);
+      break;
+    case _RIEN :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" RIEN                                        ", false);
+      break;
+  }
 }
 
 void render_logo(void) {
-    static const char PROGMEM logo[] = {
-        // 'cornia', 32x32px
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 
-        0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xe0, 0x00, 
-        0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0xf8, 0xff, 0xff, 0xff, 0x3f, 0xff, 0xff, 0xff, 0xfd, 0xe1, 
-        0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00, 
-        0x00, 0x00, 0xc0, 0xf8, 0xff, 0xff, 0xff, 0x3f, 0x07, 0x00, 0x00, 0x00, 0x07, 0x3f, 0xff, 0xff, 
-        0xff, 0xf8, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-        0x00, 0x1e, 0x1f, 0x1f, 0x1f, 0x07, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x07, 
-        0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x0e, 0x00
-    };
-    oled_write_raw_P(logo, sizeof(logo));
+  static const char PROGMEM logo[] = {
+    // 'cornia', 32x32px
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 
+    0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xf0, 0xe0, 0x00, 
+    0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0xf8, 0xff, 0xff, 0xff, 0x3f, 0xff, 0xff, 0xff, 0xfd, 0xe1, 
+    0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00, 
+    0x00, 0x00, 0xc0, 0xf8, 0xff, 0xff, 0xff, 0x3f, 0x07, 0x00, 0x00, 0x00, 0x07, 0x3f, 0xff, 0xff, 
+    0xff, 0xf8, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x00, 0x1e, 0x1f, 0x1f, 0x1f, 0x07, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x07, 
+    0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x0e, 0x00
+  };
+  oled_write_raw_P(logo, sizeof(logo));
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_270; }
 
 // Draw to OLED
 bool oled_task_user() {
-    oled_set_cursor(0, 0);
-    render_logo();
-    oled_set_cursor(0, 7);
-    render_layer_status();
-    return false;
+  oled_set_cursor(0, 0);
+  render_logo();
+  oled_set_cursor(0, 7);
+  render_layer_status();
+  return false;
 }
 
 void oled_render_boot(bool bootloader) {
-    oled_clear();
-    oled_set_cursor(0, 2);
-    if (bootloader) {
-        oled_write_P(PSTR("FLASH"), false);
-    } else {
-        oled_write_P(PSTR("RESET"), false);
-    }
-    oled_render_dirty(true);
+  oled_clear();
+  oled_set_cursor(0, 2);
+  if (bootloader) {
+    oled_write_P(PSTR("FLASH"), false);
+  } else {
+    oled_write_P(PSTR("RESET"), false);
+  }
+  oled_render_dirty(true);
 }
 
 bool shutdown_user(bool jump_to_bootloader) {
-    oled_render_boot(jump_to_bootloader);
-    return false;
+  oled_render_boot(jump_to_bootloader);
+  return false;
 }
