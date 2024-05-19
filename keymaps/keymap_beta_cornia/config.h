@@ -48,7 +48,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_VAL_STEP 17
 #endif
 
-#define OLED_BRIGHTNESS 10
+#define OLED_BRIGHTNESS 1
 #define SPLIT_LED_STATE_ENABLE
 #define SPLIT_MODS_ENABLE
 #define SPLIT_WPM_ENABLE
