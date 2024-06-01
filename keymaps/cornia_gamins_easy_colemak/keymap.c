@@ -218,7 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,     HT_A, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,                      KC_BSPC, XXXXXXX,     HT_E,    HT_I,MY_OCIRC, MY_LCTL,
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,MY_COMENT, XXXXXXX, C_CEDIL,XXXXXXX,XXXXXXX,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, MY_LSFT,
+      MY_LSFT,  XXXXXXX, XXXXXXX, C_CEDIL, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, MY_LSFT,
   //|--------+---------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            MY_NAV,   HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX 
                                        //`--------------------------'  `--------------------------'
@@ -250,7 +250,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,------------------------------------------------------.                    ,-----------------------------------------------------.
       QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,   DT_UP,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+---------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, MO_COLFR, DT_DOWN,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,  XXXXXXX, DT_DOWN,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+---------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD,  XXXXXXX, DT_PRNT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+---------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
