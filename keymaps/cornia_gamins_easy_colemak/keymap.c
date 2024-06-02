@@ -211,7 +211,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                              XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX
                                       //`-----------------------------'  `--------------------------'
   ),
-   // _ACCENTS_COLEMAK_FR
     [_ACCENTS] = LAYOUT_split_3x6_3(
   //,------------------------------------------------------.                    ,-----------------------------------------------------.
        MY_ESC, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX,    HT_U, XXXXXXX, XXXXXXX,  KC_TAB,
@@ -223,7 +222,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            MY_NAV,   HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX 
                                        //`--------------------------'  `--------------------------'
   ),
-   // _REG_SPE_FR
     [_REG_SPE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,---------------------------------------------------------.
        MY_ESC, MY_TILD, FR_LBRC, XXXXXXX, FR_RBRC,MY_DIESE,                      FR_PERC, FR_LCBR,   FR_UNDS, FR_RCBR,ALGR(KC_9),  KC_TAB,
@@ -314,7 +312,7 @@ void render_layer_status(void) {
     case _OSL_SHIFT :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      oled_write(" Uni-que  MAJ                                ", false);
+      oled_write(" Uni- que  MAJ                                ", false);
       break;
     // case _F_KEYS :
     //   // -------|"-----00000-----00000-----00000-----00000-----"
