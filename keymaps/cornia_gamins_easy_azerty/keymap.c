@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    FR_Q,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L,    FR_M, MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N, XXXXXXX, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+      MY_LSFT,    FR_W,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N, XXXXXXX, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           MY_NAV,  HT_SPC, KC_LGUI,     KC_LALT,CSTM_ENT, MO(_RIEN)
                                       //`--------------------------'  `--------------------------'
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    FR_Q,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L,    FR_M, MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N, XXXXXXX, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+      MY_LSFT,    FR_W,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N, XXXXXXX, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            MY_NAV,  HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL, S(FR_Q), S(KC_S), S(KC_D), S(KC_F), S(KC_G),                      S(KC_H), S(KC_J), S(KC_K), S(KC_L), S(FR_M), MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT, S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_N), XXXXXXX, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+      MY_LSFT, S(FR_W), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_N), XXXXXXX, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            MY_NAV,  HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
@@ -151,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, S(FR_Q), S(KC_S), S(KC_D), S(KC_F), S(KC_G),                      S(KC_H), S(KC_J), S(KC_K), S(KC_L), S(FR_M), XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_N), XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, XXXXXXX,
+      XXXXXXX, S(FR_W), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_N), XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
@@ -191,7 +191,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ),
     [_NAV] = LAYOUT_split_3x6_3(
   //,--------------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC, IMGLASS_CP,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN, XXXXXXX, XXXXXXX,
+       MY_ESC,    XXXXXXX,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN, XXXXXXX, XXXXXXX,
   //|--------+-----------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,      KC_P0,   KC_P4,   KC_P5,   KC_P6, KC_PDOT,                      KC_BSPC, KC_LEFT, KC_DOWN,KC_RIGHT,  KC_DEL, MY_LCTL,
   //|--------+-  --------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -214,9 +214,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    // _ACCENTS_COLEMAK_FR
     [_ACCENTS] = LAYOUT_split_3x6_3(
   //,------------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC,     HT_A, XXXXXXX,    HT_E, XXXXXXX, XXXXXXX,                      XXXXXXX,    HT_U,    HT_I, XXXXXXX, XXXXXXX,  KC_TAB,
+       MY_ESC,     HT_A, XXXXXXX,    HT_E, XXXXXXX, XXXXXXX,                      XXXXXXX,    HT_U,    HT_I,MY_OCIRC, XXXXXXX,  KC_TAB,
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LCTL,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,                       KC_BSPC, XXXXXXX, XXXXXXX, XXXXXXX,MY_OCIRC, MY_LCTL,
+      MY_LCTL,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,                       KC_BSPC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, MY_LCTL,
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT,  XXXXXXX, XXXXXXX, C_CEDIL, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, MY_LSFT,
   //|--------+---------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -314,7 +314,7 @@ void render_layer_status(void) {
     case _OSL_SHIFT :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      oled_write(" Uni-que  MAJ                                ", false);
+      oled_write(" Uni- que  MAJ                               ", false);
       break;
     // case _F_KEYS :
     //   // -------|"-----00000-----00000-----00000-----00000-----"

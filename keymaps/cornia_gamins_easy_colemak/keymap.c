@@ -312,7 +312,7 @@ void render_layer_status(void) {
     case _OSL_SHIFT :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      oled_write(" Uni- que  MAJ                                ", false);
+      oled_write(" Uni- que  MAJ                               ", false);
       break;
     // case _F_KEYS :
     //   // -------|"-----00000-----00000-----00000-----00000-----"
