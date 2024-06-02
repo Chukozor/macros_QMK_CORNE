@@ -289,7 +289,7 @@ void render_layer_status(void) {
     case _COLEMAK_FR :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      oled_write("COLE-  MAK       FR                           ", false);
+      oled_write("AZER-   TY  FR                               ", false);
       break;
     // case _GAMING :
     //   // -------|"-----00000-----00000-----00000-----00000-----"
@@ -361,11 +361,11 @@ void render_layer_status(void) {
       //         "                                             "
       oled_write(" RGB                                         ", false);
       break;
-    // case _RIEN :
-    //   // -------|"-----00000-----00000-----00000-----00000-----"
-    //   //         "                                             "
-    //   oled_write(" RIEN                                        ", false);
-    //   break;
+    case _RIEN :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" RIEN                                        ", false);
+      break;
   }
 }
 

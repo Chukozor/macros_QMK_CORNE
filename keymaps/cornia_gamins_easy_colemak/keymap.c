@@ -359,11 +359,11 @@ void render_layer_status(void) {
       //         "                                             "
       oled_write(" RGB                                         ", false);
       break;
-    // case _RIEN :
-    //   // -------|"-----00000-----00000-----00000-----00000-----"
-    //   //         "                                             "
-    //   oled_write(" RIEN                                        ", false);
-    //   break;
+    case _RIEN :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" RIEN                                        ", false);
+      break;
   }
 }
 
