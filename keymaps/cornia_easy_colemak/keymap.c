@@ -344,11 +344,11 @@ void render_layer_status(void) {
       //         "                                             "
       oled_write("ACCE-  NTS                                   ", false);
       break;
-    // case _REG_SPE :
-    //   // -------|"-----00000-----00000-----00000-----00000-----"
-    //   //         "                                             "
-    //   oled_write("  REG _SPE                                   ", false);
-    //   break;
+    case _REG_SPE :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("CARACTERES     SPEC- IAUX                    ", false);
+      break;
     case _MULTIMEDIA :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
