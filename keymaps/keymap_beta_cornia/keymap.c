@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          MY_NAV,  HT_SPC, KC_LGUI,     KC_LALT,CSTM_ENT, MO(_RIEN)
+                                          KC_LGUI,  MY_NAV,  HT_SPC,     KC_LALT,CSTM_ENT, MO(_RIEN)
                                       //`--------------------------'  `--------------------------'
   ),
     // _GAMING for gaming
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           MY_NAV,  HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX 
+                                          KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
     [_LATEX] = LAYOUT_split_3x6_3(
@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          MY_NAV,  XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          XXXXXXX,  MY_NAV, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
    // _SFT_LR_COLEMAK_FR
@@ -129,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           MY_NAV,  HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX
+                                          KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
    // _CAPS_LOCK
@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT, S(FR_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           MY_NAV,  HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX 
+                                          KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
    // _CAPS_LOCK
@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT, XXXXXXX,   KC_F1,   KC_F2,   KC_F3,  KC_F10,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           MY_NAV, XXXXXXX, XXXXXXX,    KC_LALT, KC_LCTL, XXXXXXX
+                                          XXXXXXX,  MY_NAV, XXXXXXX,    KC_LALT, KC_LCTL, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
     [_WEB_BROWSER] = LAYOUT_split_3x6_3(
@@ -175,7 +175,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+-----------+----------+--------+----------+---------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,  RCS(KC_N),  A(KC_F4), C(KC_D), RCS(KC_O),  XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+-----------+----------+--------+----------+---------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                                  MY_NAV,   HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX 
+                                                 KC_LGUI,   MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX 
                                           //`----------- ------------------'  `--------------------------'
   ),
     [_NOTHING_FOR_THE_MOMENT] = LAYOUT_split_3x6_3(
@@ -220,7 +220,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT,MY_COMENT, XXXXXXX, C_CEDIL,MY_PASTE,MY_PRT_S,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, MY_LSFT,
   //|--------+---------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           MY_NAV,   HT_SPC, KC_LGUI,    KC_LALT,CSTM_ENT, XXXXXXX 
+                                           KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX 
                                        //`--------------------------'  `--------------------------'
   ),
    // _REG_SPE_FR
