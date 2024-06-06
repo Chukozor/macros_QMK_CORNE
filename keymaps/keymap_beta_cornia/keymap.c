@@ -218,7 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,     HT_A, SEL_ALL, MY_SAVE, MY_COPY,MY_PRT_Z,                      KC_BSPC, XXXXXXX, _______,    HT_I,MY_OCIRC, MY_LCTL,
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,MY_COMENT, XXXXXXX, C_CEDIL,MY_PASTE,MY_PRT_S,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, MY_LSFT,
+      MY_LSFT,MY_COMENT,MY_ALT_T, C_CEDIL,MY_PASTE,MY_PRT_S,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, MY_LSFT,
   //|--------+---------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX 
                                        //`--------------------------'  `--------------------------'

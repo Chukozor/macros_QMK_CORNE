@@ -113,4 +113,5 @@ enum custom_keycodes {
     TEST4,
     TEST5,
     E_AIGU,
+    MY_ALT_T,
 };

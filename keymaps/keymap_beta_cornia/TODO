@@ -1,0 +1,14 @@
+Définir le booléen `dans_alt_tab` : valeur 1 lorsqu'on a un "ALT-TAB" vérouillé, et valeur 0 sinon.
+Modifier la macro "HT_SPC" : 
+  - lorsque ACCENTS(touche HT_SPC) est relachée :
+     - si le booléen `dans_alt_tab` vaut 1,
+	      alors reset le booléen à 0, et envoyer un KC_code "relacher ALT"
+Modifier la macro "MY_PASTE" :
+  - lorsque le booléen `dans_alt_tab` vaut 1 :
+      envoyer "Tab"down and up à chaque appuis 
+MY_ALT_T : dans la layer `Accents`:
+  - lorsque appuis court : 
+     -- si le booléen `dans_alt_tab` vaut 0, ça fait un ALT+Tab normal (rapidement), et ça désactive la layer ACCENTS
+	   -- sinon, ça fait un appuis `Shift Tab` normal à chaque appuis court
+  - lorsque appuis long  :
+     -- ça met le booléen `dans_alt_tab` à 1, et lorsque désenfoncé, ça laisse le Alt enfoncé.
