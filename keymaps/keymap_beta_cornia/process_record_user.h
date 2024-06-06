@@ -344,6 +344,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
         break;
 
+        case MY_ALT_T:
+          if (record->event.pressed) {
+            SEND_STRING(SS_DOWN(X_LALT));
+            tap_code(KC_TAB);
+          } else {
+            SEND_STRING(SS_UP(X_LALT));
+          }
+        return false;
+        break;
+
   }
   return true;
 }
