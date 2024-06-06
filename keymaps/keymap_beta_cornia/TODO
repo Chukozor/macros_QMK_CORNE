@@ -12,3 +12,16 @@ MY_ALT_T : dans la layer `Accents`:
 	   -- sinon, ça fait un appuis `Shift Tab` normal à chaque appuis court
   - lorsque appuis long  :
      -- ça met le booléen `dans_alt_tab` à 1, et lorsque désenfoncé, ça laisse le Alt enfoncé.
+
+code pour aider :
+
+void tap_e_grave(void) {
+	add_mods(MOD_BIT_LALT);
+	tap_code(KC_KP_1);
+	tap_code(KC_KP_3);
+	tap_code(KC_KP_8);
+	unregister_mods(MOD_BIT_LALT);
+}
+NB : suivant le cas, essayer avec
+	  register_mods(MOD_BIT_LSHIFT);
+ ou avec add_mods(MOD_BIT_LSHIFT);
