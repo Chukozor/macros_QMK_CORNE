@@ -9,13 +9,15 @@
 #define HT_I     TT(20)
 #define HT_O     TT(21)
 #define CSTM_ENT TT(22)
-// #define HT_SPC   TT(23)
+#define HT_SPC   TT(23)
 // #define HT_T     TT(22)
 // #define HT_SLSH  TT(22)
 // #define HT_BSLSH TT(23)
 #define MY_ESC  TT(24)
-#define MY_BNAV TT(25)
-#define WEB_TAB TT(26)
+// #define MY_BNAV TT(25)
+#define WEB_TAB TT(25)
+#define MY_ALT_T TT(26)
+
 
 // #define COMBO_SHIFT  TT(25)
 // #define CUSTOM_OSL_WITH_MOD  TT(26)
@@ -29,7 +31,7 @@
 // #define MY_NAV MO(_NAV)
 // #define MO_SPE MO(_SPE)
 #define HT_ENT LT(_REG_SPE, KC_ENT)
-#define HT_SPC LT(_ACCENTS, KC_SPC)
+// #define HT_SPC LT(_ACCENTS, KC_SPC)
 // #define MY_LCTL KC_LCTL
 // #define MY_LSFT LM(_SFT_COLEMAK_FR, MOD_LSFT)
 #define MO_COLFR TO(_COLEMAK_FR)
@@ -113,5 +115,4 @@ enum custom_keycodes {
     TEST4,
     TEST5,
     E_AIGU,
-    MY_ALT_T,
 };

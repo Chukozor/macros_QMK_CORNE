@@ -33,6 +33,16 @@ int ma_cur_dance (tap_dance_state_t *state) {
   }
   else return 8;
 }
+int ma_simple_cur_dance (tap_dance_state_t *state) {
+  if (state->count == 1) {
+    if (!state->pressed) {
+      return SINGLE_TAP;
+    } else {
+      return SINGLE_HOLD;
+    }
+  }
+  else return 8;
+}
 // -------------------------------------------------------
 #include "tap_dance_MY_LSFT.h"
 #include "tap_dance_MY_NAV.h"

@@ -27,7 +27,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // ------------- COMBO ---------------
 enum combos {
-  COMBO_MULTIMEDIAB,
   COMBO_MULTIMEDIA,
   COMBO_OSL_SHIFT,
   COMBO_BOOT
@@ -36,7 +35,7 @@ enum combos {
 
 // const uint16_t PROGMEM temp_active_RGB[] = {MY_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMBO_END};
-const uint16_t PROGMEM temp_active_MULTIMEDIAB[] = {KC_LGUI, MY_BNAV, HT_SPC, COMBO_END};
+// const uint16_t PROGMEM temp_active_MULTIMEDIAB[] = {KC_LGUI, MY_BNAV, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT,MO(_RIEN), COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
@@ -45,8 +44,8 @@ const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_
 // const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
 combo_t key_combos[] = {
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
-    [COMBO_MULTIMEDIAB]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
-    [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIAB, MO(_MULTIMEDIA)),
+    [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
+    // [COMBO_MULTIMEDIAB]=COMBO(temp_active_MULTIMEDIAB, MO(_MULTIMEDIA)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 
     // COMBO(temp_active_SHIFT, CUSTOM_OSL_WITH_MOD),
     [COMBO_OSL_SHIFT]=COMBO(temp_active_SHIFT, OSL(_OSL_SHIFT)),

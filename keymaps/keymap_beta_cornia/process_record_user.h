@@ -1,6 +1,7 @@
 // #include "timer.h"
 // static uint8_t nav_interrupted = 0;
 // static bool spc_is_held = false;
+bool alt_tab_menu = false;
 
 
 #include "custom_files/functions_record_user.h"
@@ -79,7 +80,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
       case MY_PASTE:
         if (record->event.pressed) {
-          my_paste();
+          if (alt_tab_menu) {
+              tap_code(KC_RIGHT);
+          } else {
+            my_paste();
+          }
         }
         return false;
         break;
@@ -104,7 +109,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
       case MY_SAVE:
         if (record->event.pressed) {
-          my_save();
+          if (alt_tab_menu) {
+              tap_code(KC_UP);
+          } else {
+            my_save();
+          }
         }
         return false;
         break;
@@ -194,6 +203,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           layer_clear();
           nav_already_activated = false;
           capslock_was_activated = false;
+          alt_tab_menu = false;
           // spc_is_held = false;
           layer_move(_COLEMAK_FR);
         } else {
@@ -272,6 +282,72 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         return false;
         break;
+
+      // TODO ====================================================================
+      case HT_SPC:
+        if (record->tap.count) { // Tap
+          if (record->event.pressed) {
+            // logic when pressed
+          } else {
+            // logic when released
+            tap_code(KC_SPC);
+          }
+        } else { // Hold
+          if (record->event.pressed) {
+            // logic when pressed
+            layer_on(_ACCENTS);
+            // if (record->tap.interrupted) {
+            //   // logic when interrupted
+            // } else {
+            //   // logic when not interrupted
+            // }
+          } else {
+            // logic when released
+            layer_off(_ACCENTS);
+            if (alt_tab_menu) {
+              alt_tab_menu = false;
+              SEND_STRING(SS_UP(X_LALT));
+            }
+          }
+        }
+        return false;
+
+      case MY_ALT_T:
+        if (record->tap.count) { // Tap
+          if (record->event.pressed) {
+            // logic when pressed
+          } else {
+            // logic when released
+            if (!alt_tab_menu) {
+              SEND_STRING(SS_DOWN(X_LALT));
+              tap_code(KC_TAB);
+              SEND_STRING(SS_UP(X_LALT));
+              // layer_off(_ACCENTS);
+            } else {
+              SEND_STRING(SS_DOWN(X_LSFT));
+              tap_code(KC_TAB);
+              SEND_STRING(SS_UP(X_LSFT));
+            }
+          }
+        } else { // Hold
+          if (record->event.pressed) {
+            // logic when pressed
+            if (alt_tab_menu) {
+              SEND_STRING(SS_DOWN(X_LSFT));
+              tap_code(KC_TAB);
+              SEND_STRING(SS_UP(X_LSFT));
+            } else {
+              alt_tab_menu = true;
+              SEND_STRING(SS_DOWN(X_LALT));
+              tap_code(KC_TAB);
+            }
+          } else {
+            // logic when released
+
+          }
+        }
+        return false;
+        // TODO ====================================================================
 
       case TEST1:
         if (record->event.pressed) {
@@ -381,8 +457,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 200;
         case HT_E:
             return 160;
-        case MY_BNAV:
-            return 230;
+        // case MY_BNAV:
+        //     return 230;
         case WEB_TAB:
             return 230;
         default:

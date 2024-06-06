@@ -1,18 +1,24 @@
-Définir le booléen `dans_alt_tab` : valeur 1 lorsqu'on a un "ALT-TAB" vérouillé, et valeur 0 sinon.
+Définir le booléen `alt_tab_menu` : valeur 1 lorsqu'on a un "ALT-TAB" vérouillé, et valeur 0 sinon.
 Modifier la macro "HT_SPC" : 
   - lorsque ACCENTS(touche HT_SPC) est relachée :
-     - si le booléen `dans_alt_tab` vaut 1,
+     - si le booléen `alt_tab_menu` vaut 1,
 	      alors reset le booléen à 0, et envoyer un KC_code "relacher ALT"
 Modifier la macro "MY_PASTE" :
-  - lorsque le booléen `dans_alt_tab` vaut 1 :
+  - lorsque le booléen `alt_tab_menu` vaut 1 :
       envoyer "Tab"down and up à chaque appuis 
 MY_ALT_T : dans la layer `Accents`:
   - lorsque appuis court : 
-     -- si le booléen `dans_alt_tab` vaut 0, ça fait un ALT+Tab normal (rapidement), et ça désactive la layer ACCENTS
+     -- si le booléen `alt_tab_menu` vaut 0, ça fait un ALT+Tab normal (rapidement), et ça désactive la layer ACCENTS
 	   -- sinon, ça fait un appuis `Shift Tab` normal à chaque appuis court
   - lorsque appuis long  :
-     -- ça met le booléen `dans_alt_tab` à 1, et lorsque désenfoncé, ça laisse le Alt enfoncé.
+    si deja booléen `alt_tab_menu` à 1,
+      alors ça fait juste un shift+tab
+    sinon
+      -- ça met le booléen `alt_tab_menu` à 1, ça fait un ALT+Tab lorsque enfoncé (sans retirer le ALT), et lorsque désenfoncé, ça laisse le Alt enfoncé.
 
+
+
+// =====================================================
 code pour aider :
 
 void tap_e_grave(void) {
@@ -25,3 +31,49 @@ void tap_e_grave(void) {
 NB : suivant le cas, essayer avec
 	  register_mods(MOD_BIT_LSHIFT);
  ou avec add_mods(MOD_BIT_LSHIFT);
+
+// =====================================================
+case HT_SPC:
+  if (record->tap.count) { // Tap
+    if (record->event.pressed) {
+      // logic when pressed
+    } else {
+      // logic when released
+    }
+  } else { // Hold
+    if (record->event.pressed) {
+      // logic when pressed
+      if (record->tap.interrupted) {
+        // logic when interrupted
+      } else {
+        // logic when not interrupted
+      }
+    } else {
+      // logic when released
+    }
+  }
+  return false;
+
+// =====================================================
+  bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(_MOVE, KC_BSPC):
+            if (!record->tap.count && record->tap.interrupted) {
+                if (record->event.pressed) {
+                    layer_on(_MOVE);
+                } else {
+                    layer_off(_MOVE);
+                }
+            } else {
+                if (record->event.pressed) {
+                    register_code(KC_BSPC);
+                } else {
+                    unregister_code(KC_BSPC);
+                }
+            }
+            return false;
+    }
+    return true;
+}
+// =====================================================
+

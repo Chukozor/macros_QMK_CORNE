@@ -61,7 +61,11 @@
 	        	if (!record->event.pressed) {
 	        		return false;
 	        	}
-	        		tap_c_ced();
+            if (alt_tab_menu) {
+              tap_code(KC_DOWN);
+            } else {
+              tap_c_ced();
+            }
 	        // } else { // held
 	        	  // if (!record->event.pressed) {
 	        	  // 	return false;
