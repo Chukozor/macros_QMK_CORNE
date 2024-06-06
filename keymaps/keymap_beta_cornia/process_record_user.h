@@ -1,7 +1,7 @@
 // #include "timer.h"
 // static uint8_t nav_interrupted = 0;
 // static bool spc_is_held = false;
-
+bool alt_tab_menu = false;
 
 #include "custom_files/functions_record_user.h"
 
@@ -194,6 +194,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           layer_clear();
           nav_already_activated = false;
           capslock_was_activated = false;
+          alt_tab_menu = false;
           // spc_is_held = false;
           layer_move(_COLEMAK_FR);
         } else {
@@ -346,11 +347,57 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case MY_ALT_T:
           if (record->event.pressed) {
+            alt_tab_menu = true;
             SEND_STRING(SS_DOWN(X_LALT));
             tap_code(KC_TAB);
           } else {
             SEND_STRING(SS_UP(X_LALT));
+            alt_tab_menu = false;
           }
+        return false;
+        break;
+
+      case KY_P1:
+        if (record->event.pressed) {
+          if (alt_tab_menu) {
+              tap_code(KC_LEFT);
+          } else {
+            tap_code(KC_P1);
+          }
+        }
+        return false;
+        break;
+
+      case KY_P2:
+        if (record->event.pressed) {
+          if (alt_tab_menu) {
+              tap_code(KC_DOWN);
+          } else {
+            tap_code(KC_P2);
+          }
+        }
+        return false;
+        break;
+
+      case KY_P3:
+        if (record->event.pressed) {
+          if (alt_tab_menu) {
+              tap_code(KC_RIGHT);
+          } else {
+            tap_code(KC_P3);
+          }
+        }
+        return false;
+        break;
+
+      case KY_P5:
+        if (record->event.pressed) {
+          if (alt_tab_menu) {
+              tap_code(KC_UP);
+          } else {
+            tap_code(KC_P5);
+          }
+        }
         return false;
         break;
 

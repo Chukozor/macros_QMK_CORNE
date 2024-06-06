@@ -193,9 +193,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------------------------------------------------------.                    ,-----------------------------------------------------.
        MY_ESC, IMGLASS_CP,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN, XXXXXXX, XXXXXXX,
   //|--------+-----------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LCTL,      KC_P0,   KC_P4,   KC_P5,   KC_P6, KC_PDOT,                      KC_BSPC, KC_LEFT, KC_DOWN,KC_RIGHT,  KC_DEL, MY_LCTL,
+      MY_LCTL,      KC_P0,   KC_P4,   KY_P5,   KC_P6, KC_PDOT,                      KC_BSPC, KC_LEFT, KC_DOWN,KC_RIGHT,  KC_DEL, MY_LCTL,
   //|--------+-  --------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    MY_ALT_T,   KC_P1,   KC_P2,   KC_P3,  KC_ENT,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
+      KC_LSFT,   MY_ALT_T,   KY_P1,   KY_P2,   KY_P3,  KC_ENT,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
   //|--------+-----------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                              _______, _______, _______,    KC_LALT, KC_LCTL,  MY_NAV
                                       //`-----------------------------'  `--------------------------'
