@@ -2,6 +2,7 @@
 // static uint8_t nav_interrupted = 0;
 // static bool spc_is_held = false;
 bool alt_tab_menu = false;
+bool ky_webnav = false;
 
 #include "custom_files/functions_record_user.h"
 
@@ -195,6 +196,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           nav_already_activated = false;
           capslock_was_activated = false;
           alt_tab_menu = false;
+          ky_webnav = false;
           // spc_is_held = false;
           layer_move(_COLEMAK_FR);
         } else {
@@ -360,7 +362,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case KY_P1:
         if (record->event.pressed) {
           if (alt_tab_menu) {
-              tap_code(KC_LEFT);
+            tap_code(KC_LEFT);
           } else {
             tap_code(KC_P1);
           }
@@ -371,7 +373,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case KY_P2:
         if (record->event.pressed) {
           if (alt_tab_menu) {
-              tap_code(KC_DOWN);
+            tap_code(KC_DOWN);
           } else {
             tap_code(KC_P2);
           }
@@ -382,7 +384,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case KY_P3:
         if (record->event.pressed) {
           if (alt_tab_menu) {
-              tap_code(KC_RIGHT);
+            tap_code(KC_RIGHT);
           } else {
             tap_code(KC_P3);
           }
@@ -393,13 +395,64 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case KY_P5:
         if (record->event.pressed) {
           if (alt_tab_menu) {
-              tap_code(KC_UP);
+            tap_code(KC_UP);
           } else {
             tap_code(KC_P5);
           }
         }
         return false;
         break;
+
+       case KY_WEBNAV:
+          if (record->event.pressed) {
+            ky_webnav = true;
+            SEND_STRING(SS_DOWN(X_LCTL));
+            // tap_code(KC_TAB);
+          } else {
+            SEND_STRING(SS_UP(X_LCTL));
+            alt_tab_menu = false;
+          }
+        return false;
+        break;
+        
+        case KY_LEFT:
+        if (!ky_webnav) {
+          if (record->event.pressed) {
+            SEND_STRING(SS_DOWN(X_LEFT));
+          } else {
+            SEND_STRING(SS_UP(X_LEFT));
+          }
+        } else {
+          if (record->event.pressed) {
+            SEND_STRING(SS_DOWN(X_LSFT));
+            SEND_STRING(SS_DOWN(X_TAB));
+          } else {
+            SEND_STRING(SS_UP(X_TAB));
+            SEND_STRING(SS_UP(X_LSFT));
+          }
+        }
+        return false;
+        break;
+        
+        case KY_RIGHT:
+        if (!ky_webnav) {
+          if (record->event.pressed) {
+            SEND_STRING(SS_DOWN(X_RIGHT));
+          } else {
+            SEND_STRING(SS_UP(X_RIGHT));
+          }
+        } else {
+          if (record->event.pressed) {
+            // SEND_STRING(SS_DOWN(X_LSFT));
+            SEND_STRING(SS_DOWN(X_TAB));
+          } else {
+            SEND_STRING(SS_UP(X_TAB));
+            // SEND_STRING(SS_UP(X_LSFT));
+          }
+        }
+        return false;
+        break;
+
 
   }
   return true;

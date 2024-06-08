@@ -59,6 +59,7 @@ enum layers{
     _CAPS_LOCK,
     _OSL_SHIFT,
     _F_KEYS,
+    _NAV_LEFT,
     _WEB_BROWSER,
     _NOTHING_FOR_THE_MOMENT,
     // _SPE,
@@ -67,8 +68,7 @@ enum layers{
     _ACCENTS,
     _REG_SPE,
     _MULTIMEDIA,
-    _RGB,
-    _RIEN
+    _RGB
 };
 
 enum custom_keycodes {
@@ -118,4 +118,9 @@ enum custom_keycodes {
     KY_P2,
     KY_P3,
     KY_P5,
+    KY_WEBNAV,
+    KY_LEFT,
+    // KY_DOWN,
+    KY_RIGHT,
+    // KY_UP,
 };
