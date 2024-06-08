@@ -3,6 +3,7 @@
 // static bool spc_is_held = false;
 bool alt_tab_menu = false;
 bool ky_webnav = false;
+bool ky_spc = false;
 
 #include "custom_files/functions_record_user.h"
 
@@ -414,15 +415,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
         return false;
         break;
+
+       case KY_SPC:
+          if (record->event.pressed) {
+            ky_spc = true;
+            // SEND_STRING(SS_DOWN(X_LCTL));
+            // tap_code(KC_TAB);
+          } else {
+            // SEND_STRING(SS_UP(X_LCTL));
+            ky_spc = false;
+          }
+        return false;
+        break;
         
         case KY_LEFT:
-        if (!ky_webnav) {
-          if (record->event.pressed) {
-            SEND_STRING(SS_DOWN(X_LEFT));
-          } else {
-            SEND_STRING(SS_UP(X_LEFT));
-          }
-        } else {
+        if (ky_webnav) {
           if (record->event.pressed) {
             SEND_STRING(SS_DOWN(X_LSFT));
             SEND_STRING(SS_DOWN(X_TAB));
@@ -430,24 +437,46 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             SEND_STRING(SS_UP(X_TAB));
             SEND_STRING(SS_UP(X_LSFT));
           }
+        } else if (ky_spc) {
+          if (record->event.pressed) {
+            SEND_STRING(SS_DOWN(X_LSFT));
+            SEND_STRING(SS_DOWN(X_SPC));
+          } else {
+            SEND_STRING(SS_UP(X_SPC));
+            SEND_STRING(SS_UP(X_LSFT));
+          }
+        } else {
+          if (record->event.pressed) {
+            SEND_STRING(SS_DOWN(X_LEFT));
+          } else {
+            SEND_STRING(SS_UP(X_LEFT));
+          }
         }
         return false;
         break;
         
         case KY_RIGHT:
-        if (!ky_webnav) {
-          if (record->event.pressed) {
-            SEND_STRING(SS_DOWN(X_RIGHT));
-          } else {
-            SEND_STRING(SS_UP(X_RIGHT));
-          }
-        } else {
+        if (ky_webnav) {
           if (record->event.pressed) {
             // SEND_STRING(SS_DOWN(X_LSFT));
             SEND_STRING(SS_DOWN(X_TAB));
           } else {
             SEND_STRING(SS_UP(X_TAB));
             // SEND_STRING(SS_UP(X_LSFT));
+          }
+        } else if (ky_spc) {
+          if (record->event.pressed) {
+            // SEND_STRING(SS_DOWN(X_LSFT));
+            SEND_STRING(SS_DOWN(X_SPC));
+          } else {
+            SEND_STRING(SS_UP(X_SPC));
+            // SEND_STRING(SS_UP(X_LSFT));
+          }
+        } else {
+          if (record->event.pressed) {
+            SEND_STRING(SS_DOWN(X_RIGHT));
+          } else {
+            SEND_STRING(SS_UP(X_RIGHT));
           }
         }
         return false;

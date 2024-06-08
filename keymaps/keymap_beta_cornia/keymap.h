@@ -123,4 +123,5 @@ enum custom_keycodes {
     // KY_DOWN,
     KY_RIGHT,
     // KY_UP,
+    KY_SPC,
 };

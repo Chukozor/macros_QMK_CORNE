@@ -171,14 +171,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
     [_NAV_LEFT] = LAYOUT_split_3x6_3(
-  //,-------------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC,  XXXXXXX, XXXXXXX,  WEB_TAB, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+---------+--------+---------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,  XXXXXXX, KY_LEFT,KY_WEBNAV,KY_RIGHT, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+---------+--------+---------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,  XXXXXXX, XXXXXXX,  C(KC_D), XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+---------+--------+---------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, TG(_NAV_LEFT)
+  //,--------------------------------------------------------.                    ,-----------------------------------------------------.
+       MY_ESC,  XXXXXXX,  XXXXXXX,  WEB_TAB, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+---------+---------+---------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX,  XXXXXXX,  KY_LEFT,KY_WEBNAV,KY_RIGHT, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+---------+---------+---------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX,  XXXXXXX,  XXXXXXX,  C(KC_D), XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+---------+---------+---------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          XXXXXXX, XXXXXXX,  KY_SPC,       XXXXXXX, XXXXXXX, TG(_NAV_LEFT)
                                       //`--------------------------'  `--------------------------'
   ),
     [_WEB_BROWSER] = LAYOUT_split_3x6_3(
