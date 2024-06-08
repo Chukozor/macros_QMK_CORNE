@@ -410,7 +410,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // tap_code(KC_TAB);
           } else {
             SEND_STRING(SS_UP(X_LCTL));
-            alt_tab_menu = false;
+            ky_webnav = false;
           }
         return false;
         break;
