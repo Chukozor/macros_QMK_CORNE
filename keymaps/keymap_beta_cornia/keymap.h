@@ -57,7 +57,7 @@ enum layers{
     _LATEX,
     _SFT_COLEMAK_FR,
     _CAPS_LOCK,
-    _OSL_SHIFT,
+    // _OSL_SHIFT,
     _F_KEYS,
     _NAV_LEFT,
     _WEB_BROWSER,
@@ -124,4 +124,5 @@ enum custom_keycodes {
     KY_RIGHT,
     // KY_UP,
     KY_SPC,
+    MY_VIRG,
 };

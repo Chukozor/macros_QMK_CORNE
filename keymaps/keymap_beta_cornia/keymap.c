@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum combos {
   COMBO_MULTIMEDIA,
   COMBO_MULTIMEDIA_2,
-  COMBO_OSL_SHIFT,
+  COMBO_OSM_SHIFT,
   COMBO_BOOT,
   COMBO_BOOT_2
   // COMBO_E_AIGU
@@ -51,7 +51,7 @@ combo_t key_combos[] = {
     [COMBO_MULTIMEDIA_2]=COMBO(temp_active_MULTIMEDIA_2, MO(_MULTIMEDIA)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 
     // COMBO(temp_active_SHIFT, CUSTOM_OSL_WITH_MOD),
-    [COMBO_OSL_SHIFT]=COMBO(temp_active_SHIFT, OSL(_OSL_SHIFT)),
+    [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     [COMBO_BOOT_2]=COMBO(temp_active_boot_2, QK_BOOT),
     // [COMBO_E_AIGU]=COMBO(temp_active_e_aigu, E_AIGU),
@@ -145,18 +145,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       MY_LSFT, S(FR_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, TG(_NAV_LEFT) 
-                                      //`--------------------------'  `--------------------------'
-  ),
-   // _CAPS_LOCK
-    [_OSL_SHIFT] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC, S(FR_Q), S(FR_W), S(KC_F), S(KC_P), S(KC_G),                      S(KC_J), S(KC_L), S(KC_U), S(KC_Y), FR_QUOT, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, S(FR_A), S(KC_R), S(KC_S), S(KC_T), S(KC_D),                      S(KC_H), S(KC_N), S(KC_E), S(KC_I), S(KC_O), XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, S(FR_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COLN, FR_SCLN, FR_EXLM, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
     [_F_KEYS] = LAYOUT_split_3x6_3(
@@ -314,11 +302,11 @@ void render_layer_status(void) {
       //         "                                             "
       oled_write(" CAPS_LOCK                                   ", false);
       break;
-    case _OSL_SHIFT :
-      // -------|"-----00000-----00000-----00000-----00000-----"
-      //         "                                             "
-      oled_write(" OSL_SHIFT                                   ", false);
-      break;
+    // case _OSL_SHIFT :
+    //   // -------|"-----00000-----00000-----00000-----00000-----"
+    //   //         "                                             "
+    //   oled_write(" OSL_SHIFT                                   ", false);
+    //   break;
     case _F_KEYS :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "

@@ -14,6 +14,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       #include "custom_files/french_symbols/my_accents_char_precuser.h"
       #include "custom_files/my_specials_char_precuser.h"
       // #include "custom_files\french_symbols\accents_for_combo.h"
+      // #include "custom_files/french_symbols/shift_behaviours.c"
 
       case MY_PRT_S:
         if (record->event.pressed) {
@@ -567,7 +568,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 
     // or with combo index, i.e. its name from enum.
     switch (index) {
-        case COMBO_OSL_SHIFT:
+        case COMBO_OSM_SHIFT:
             return 50;
     }
 
