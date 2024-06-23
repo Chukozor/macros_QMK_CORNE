@@ -52,5 +52,6 @@ void spc_reset (tap_dance_state_t *state, void *user_data) {
     //   spc_tap_state.state = 0;
     //   break;
   }
+  spc_tap_state.state = 0;
 }
 // ================= END NAV_F_KEYS TAPDANCE ================

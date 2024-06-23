@@ -13,8 +13,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       // #include "obsolete/my_old_specials_char.h"
       #include "custom_files/french_symbols/my_accents_char_precuser.h"
       #include "custom_files/my_specials_char_precuser.h"
-      // #include "custom_files\french_symbols\accents_for_combo.h"
-      // #include "custom_files/french_symbols/shift_behaviours.c"
+      // #include "custom_files/french_symbols/accents_for_combo.h"
 
       case MY_PRT_S:
         if (record->event.pressed) {

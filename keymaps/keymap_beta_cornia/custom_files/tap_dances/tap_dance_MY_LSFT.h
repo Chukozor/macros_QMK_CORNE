@@ -19,18 +19,22 @@ void sft_finished (tap_dance_state_t *state, void *user_data) {
       if (layer_state_is(_CAPS_LOCK)) {
         //if already set, then switch it off
         layer_off(_CAPS_LOCK);
+        caps_lock_activated = false;
       } else { 
         //if not already set, then switch the layer on
         layer_on(_CAPS_LOCK);
+        caps_lock_activated = true;
       }
       break;    
     case SINGLE_HOLD: 
-      layer_on(_SFT_COLEMAK_FR);
+      // layer_on(_SFT_COLEMAK_FR);
+      layer_on(_COLEMAK_FR);
       // TODO moi
       register_mods(MOD_BIT_LSHIFT);
       // add_mods(MOD_BIT_LSHIFT);
       // tap_code(KC_PSCR);
       // TODO moi
+      shift_activated = true;
       break;
     // case DOUBLE_TAP: 
     //   //check to see if the layer is already set
@@ -48,11 +52,16 @@ void sft_finished (tap_dance_state_t *state, void *user_data) {
 }
 // -------------------------------------------------------
 void sft_reset (tap_dance_state_t *state, void *user_data) {
-  //if the key was held down and now is released then switch off the layer
-  if (sft_tap_state.state==SINGLE_HOLD) {
-    layer_off(_SFT_COLEMAK_FR);
-    unregister_mods(MOD_BIT_LSHIFT);
+  switch (sft_tap_state.state) {
+    // case SINGLE_TAP:
+    //   caps_lock_activated = false;
+    //   break;
+    case SINGLE_HOLD:
+      unregister_mods(MOD_BIT_LSHIFT);
+      shift_activated = false;
+      break;
   }
   sft_tap_state.state = 0;
 }
+
 // ================= END SHIFT TAPDANCE ================

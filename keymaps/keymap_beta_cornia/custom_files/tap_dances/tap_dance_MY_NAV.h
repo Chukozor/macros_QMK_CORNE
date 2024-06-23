@@ -51,8 +51,8 @@ void nav_reset (tap_dance_state_t *state, void *user_data) {
       break;
     case DOUBLE_HOLD:
       layer_off(_F_KEYS);
-      nav_tap_state.state = 0;
       break;
   }
+  nav_tap_state.state = 0;
 }
 // ================= END NAV_F_KEYS TAPDANCE ================
