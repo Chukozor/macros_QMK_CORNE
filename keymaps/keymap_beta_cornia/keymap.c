@@ -124,18 +124,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                           XXXXXXX,  MY_NAV, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
-  //  // _SFT_LR_COLEMAK_FR
-  //   [_SFT_COLEMAK_FR] = LAYOUT_split_3x6_3(
-  // //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-  //      MY_ESC,    FR_Q,    FR_W,    KC_F,    KC_P,    KC_G,                         KC_J,    KC_L,    KC_U,    KC_Y, FR_QUOT,  KC_TAB,
-  // //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-  //     MY_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                         KC_H,    KC_N,    KC_E,    KC_I,    KC_O, MY_LCTL,
-  // //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-  //     MY_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
-  // //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-  //                                         KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX
-  //                                     //`--------------------------'  `--------------------------'
-  // ),
    // _CAPS_LOCK
     [_CAPS_LOCK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -229,11 +217,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    // _REG_SPE_FR
     [_REG_SPE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,---------------------------------------------------------.
-       MY_ESC, MY_TILD, FR_LBRC, XXXXXXX, FR_RBRC,MY_DIESE,                      FR_PERC, FR_LCBR,   FR_UNDS, FR_RCBR,ALGR(KC_9),  KC_TAB,
+       MY_ESC, MY_TILD, FR_LBRC, XXXXXXX, FR_RBRC,MY_DIESE,                      FR_PERC, FR_LCBR,   FR_UNDS, FR_RCBR,   FR_AMPR,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
       MY_LCTL,   FR_AT, KC_PMNS,  KC_EQL, KC_PPLS, MY_DOLL,                      FR_ASTR,MY_BQUOT,   FR_QUOT, FR_DQUO,S(KC_MINS), MY_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
-      _______, XXXXXXX, KC_PSLS, MY_PIPE, KC_PAST, MY_EURO,                      FR_AMPR, FR_LPRN,ALGR(KC_8), FR_RPRN,   XXXXXXX, _______,
+      _______, XXXXXXX, KC_PSLS, MY_PIPE, KC_PAST, MY_EURO,                   ALGR(KC_9), FR_LPRN,ALGR(KC_8), FR_RPRN,   XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+----------+--------+----------+--------|
                                           _______, _______, _______,   _______, CSTM_ENT, _______
                                       //`--------------------------'  `--------------------------'
