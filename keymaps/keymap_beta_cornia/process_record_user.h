@@ -198,6 +198,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           capslock_was_activated = false;
           alt_tab_menu = false;
           ky_webnav = false;
+          caps_lock_activated = false;
+          shift_activated = false;
           // spc_is_held = false;
           layer_move(_COLEMAK_FR);
         } else {
