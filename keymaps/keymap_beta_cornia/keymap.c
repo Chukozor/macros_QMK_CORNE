@@ -32,7 +32,9 @@ enum combos {
   COMBO_MULTIMEDIA_2,
   COMBO_OSM_SHIFT,
   COMBO_BOOT,
-  COMBO_BOOT_2
+  COMBO_BOOT_2,
+  TOGGLE_GAMING,
+  TOGGLE_GAMING_2
   // COMBO_E_AIGU
 };
 
@@ -42,6 +44,8 @@ const uint16_t PROGMEM temp_active_MULTIMEDIA_2[] = {KC_LGUI, MY_BNAV, HT_SPC, C
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT,MO(_NAV_LEFT), COMBO_END};
 const uint16_t PROGMEM temp_active_boot_2[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT,TG(_NAV_LEFT), COMBO_END};
+const uint16_t PROGMEM toggle_gaming[] = {FR_Q, FR_W ,KC_F, KC_P, KC_G, COMBO_END};
+const uint16_t PROGMEM toggle_gaming_2[] = {KC_Q, KC_W, KC_E, KC_R, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
 // const uint16_t PROGMEM bis_x_temp_active_RGB[] = {CSTM_ENT, HT_SPC, COMBO_END};
@@ -50,6 +54,8 @@ combo_t key_combos[] = {
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
     [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
     [COMBO_MULTIMEDIA_2]=COMBO(temp_active_MULTIMEDIA_2, MO(_MULTIMEDIA)),
+    [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_GAMING)),
+    [TOGGLE_GAMING_2]=COMBO(toggle_gaming_2, TG(_GAMING)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 
     // COMBO(temp_active_SHIFT, CUSTOM_OSL_WITH_MOD),
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
@@ -104,15 +110,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // _GAMING for gaming
     [_GAMING] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,   KC_TAB,
+       MY_ESC,    FR_Q,    KC_R,    KC_C,    KC_F,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,   KC_TAB,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, MY_LCTL,
+      KC_LCTL,    KC_E,    FR_A,    FR_W,    KC_D,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, MY_LSFT,
+      KC_LSFT,    FR_Z,    KC_X,    KC_S,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, TG(_NAV_LEFT) 
+                                          KC_LGUI,MO(_NAV),  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
+  //   // QWERTY
+  //   [_QWERTY] = LAYOUT_split_3x6_3(
+  // //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+  //      MY_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,   KC_TAB,
+  // //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+  //     KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_LCTL,
+  // //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+  //     KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LSFT,
+  // //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+  //                                         KC_LGUI,MO(_NAV),  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
+  //                                     //`--------------------------'  `--------------------------'
+  // ),
     [_LATEX] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        MY_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -199,7 +217,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+-  --------+--------+----------+----------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    XXXXXXX, KC_PSLS,   XXXXXXX,   KC_PAST, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+-----------+--------+----------+----------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                             XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX
+                                             XXXXXXX, MY_NAV, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX
                                       //`-----------------------------'  `--------------------------'
   ),
    // _ACCENTS_COLEMAK_FR

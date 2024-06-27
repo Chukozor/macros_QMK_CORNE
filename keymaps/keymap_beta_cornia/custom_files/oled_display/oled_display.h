@@ -24,15 +24,15 @@ bool oled_task_user() {
     case _LATEX :
       oled_write("LATEX        ", false);
       break;
-    case _SFT_COLEMAK_FR :
-      oled_write("SFT          ", false);
-      break;
+    // case _SFT_COLEMAK_FR :
+    //   oled_write("SFT          ", false);
+    //   break;
     case _CAPS_LOCK :
       oled_write("CAPS_LOCK    ", false);
       break;
-    case _OSL_SHIFT :
-      oled_write("OSL_SHIFT    ", false);
-      break;
+    // case _OSL_SHIFT :
+    //   oled_write("OSL_SHIFT    ", false);
+    //   break;
     case _F_KEYS :
       oled_write("F_KEYS       ", false);
       break;
