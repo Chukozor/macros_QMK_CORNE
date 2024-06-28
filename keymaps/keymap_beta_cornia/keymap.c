@@ -217,8 +217,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+-  --------+--------+----------+----------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    XXXXXXX, KC_PSLS,   XXXXXXX,   KC_PAST, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+-----------+--------+----------+----------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                             XXXXXXX, MY_NAV, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX
-                                      //`-----------------------------'  `--------------------------'
+                                        XXXXXXX, MY_NAV_FROM_OP, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX
+                                          //`-----------------------------'  `--------------------------'
   ),
    // _ACCENTS_COLEMAK_FR
     [_ACCENTS] = LAYOUT_split_3x6_3(

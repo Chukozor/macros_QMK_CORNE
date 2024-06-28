@@ -70,21 +70,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           my_copy();
         }
         return false;
-        break;
         
       case MY_CUT:
         if (record->event.pressed) {
           my_cut();
         }
         return false;
-        break;
 
       case MY_PASTE:
         if (record->event.pressed) {
           my_paste();
         }
         return false;
-        break;
 
       case MY_UNDO:
         if (record->event.pressed) {
@@ -93,7 +90,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           my_undo_up();
         }
         return false;
-        break;
 
       case MY_REDO:
         if (record->event.pressed) {
@@ -102,14 +98,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           my_redo_up();
         }
         return false;
-        break;
 
       case MY_SAVE:
         if (record->event.pressed) {
           my_save();
         }
         return false;
-        break;
 
       case CSTM_ENT:
         if (record->tap.count) { // Tap
@@ -145,7 +139,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           return false;
         }
         return false;
-        break;
 
       // case HT_SPC:
       //   if (record->tap.count) { // tapped
@@ -185,7 +178,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       //     }
       //   }
       //   return false;
-      //   break;
 
       case MY_ESC:
         if (record->event.pressed) {
@@ -206,7 +198,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           // nothing needed here
         }
         return false;
-        break;
 
       case WEB_D:
         // if (spc_is_held) {
@@ -226,7 +217,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           tap_code(KC_TAB);
         }
         return false;
-        break;
 
       case WEB_G:
         // if (spc_is_held) {
@@ -246,7 +236,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             SEND_STRING(SS_LSFT(SS_TAP(X_TAB)));
         }
         return false;
-        break;
 
       case WEB_TAB:
         if (record->tap.count) { // tapped
@@ -271,13 +260,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
         }
         return false;
-        break;
+
       case SEL_ALL:
         if (record->event.pressed) {
           my_selec_all();
         }
         return false;
-        break;
 
       case TEST1:
         if (record->event.pressed) {
@@ -291,7 +279,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING(SS_LSFT(SS_TAP(X_Q)));// KC_Q = FR_A 
         }
         return false;
-        break;
 
       case TEST2:
         if (record->event.pressed) {
@@ -305,7 +292,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING(SS_UP(X_LCTL));
         }
         return false;
-        break;
 
       case TEST3:
         if (record->event.pressed) {
@@ -319,7 +305,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING(SS_LSFT(SS_TAP(X_E)));
         }
         return false;
-        break;
 
       case TEST4:
         if (record->event.pressed) {
@@ -333,7 +318,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING(SS_LSFT(SS_TAP(X_C)));
         }
         return false;
-        break;
 
       case TEST5:
         if (record->event.pressed) {
@@ -348,19 +332,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           // SEND_STRING(SS_LSFT(SS_TAP(X_E)));
         }
         return false;
-        break;
 
-        case MY_ALT_T:
-          if (record->event.pressed) {
-            alt_tab_menu = true;
-            SEND_STRING(SS_DOWN(X_LALT));
-            tap_code(KC_TAB);
-          } else {
-            SEND_STRING(SS_UP(X_LALT));
-            alt_tab_menu = false;
-          }
+      case MY_ALT_T:
+        if (record->event.pressed) {
+          alt_tab_menu = true;
+          SEND_STRING(SS_DOWN(X_LALT));
+          tap_code(KC_TAB);
+        } else {
+          SEND_STRING(SS_UP(X_LALT));
+          alt_tab_menu = false;
+        }
         return false;
-        break;
 
       case KY_P1:
         if (record->event.pressed) {
@@ -371,7 +353,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
         }
         return false;
-        break;
 
       case KY_P2:
         if (record->event.pressed) {
@@ -382,7 +363,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
         }
         return false;
-        break;
 
       case KY_P3:
         if (record->event.pressed) {
@@ -393,7 +373,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
         }
         return false;
-        break;
 
       case KY_P5:
         if (record->event.pressed) {
@@ -404,7 +383,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
         }
         return false;
-        break;
 
        case KY_WEBNAV:
           if (record->event.pressed) {
@@ -415,8 +393,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             SEND_STRING(SS_UP(X_LCTL));
             ky_webnav = false;
           }
-        return false;
-        break;
+          return false;
 
        case KY_SPC:
           if (record->event.pressed) {
@@ -427,63 +404,64 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // SEND_STRING(SS_UP(X_LCTL));
             ky_spc = false;
           }
-        return false;
-        break;
+          return false;
         
         case KY_LEFT:
-        if (ky_webnav) {
-          if (record->event.pressed) {
-            SEND_STRING(SS_DOWN(X_LSFT));
-            SEND_STRING(SS_DOWN(X_TAB));
+          if (ky_webnav) {
+            if (record->event.pressed) {
+              SEND_STRING(SS_DOWN(X_LSFT));
+              SEND_STRING(SS_DOWN(X_TAB));
+            } else {
+              SEND_STRING(SS_UP(X_TAB));
+              SEND_STRING(SS_UP(X_LSFT));
+            }
+          } else if (ky_spc) {
+            if (record->event.pressed) {
+              SEND_STRING(SS_DOWN(X_LSFT));
+              SEND_STRING(SS_DOWN(X_SPC));
+            } else {
+              SEND_STRING(SS_UP(X_SPC));
+              SEND_STRING(SS_UP(X_LSFT));
+            }
           } else {
-            SEND_STRING(SS_UP(X_TAB));
-            SEND_STRING(SS_UP(X_LSFT));
+            if (record->event.pressed) {
+              SEND_STRING(SS_DOWN(X_LEFT));
+            } else {
+              SEND_STRING(SS_UP(X_LEFT));
+            }
           }
-        } else if (ky_spc) {
-          if (record->event.pressed) {
-            SEND_STRING(SS_DOWN(X_LSFT));
-            SEND_STRING(SS_DOWN(X_SPC));
-          } else {
-            SEND_STRING(SS_UP(X_SPC));
-            SEND_STRING(SS_UP(X_LSFT));
-          }
-        } else {
-          if (record->event.pressed) {
-            SEND_STRING(SS_DOWN(X_LEFT));
-          } else {
-            SEND_STRING(SS_UP(X_LEFT));
-          }
-        }
-        return false;
-        break;
+          return false;
         
         case KY_RIGHT:
-        if (ky_webnav) {
-          if (record->event.pressed) {
-            // SEND_STRING(SS_DOWN(X_LSFT));
-            SEND_STRING(SS_DOWN(X_TAB));
+          if (ky_webnav) {
+            if (record->event.pressed) {
+              // SEND_STRING(SS_DOWN(X_LSFT));
+              SEND_STRING(SS_DOWN(X_TAB));
+            } else {
+              SEND_STRING(SS_UP(X_TAB));
+              // SEND_STRING(SS_UP(X_LSFT));
+            }
+          } else if (ky_spc) {
+            if (record->event.pressed) {
+              // SEND_STRING(SS_DOWN(X_LSFT));
+              SEND_STRING(SS_DOWN(X_SPC));
+            } else {
+              SEND_STRING(SS_UP(X_SPC));
+              // SEND_STRING(SS_UP(X_LSFT));
+            }
           } else {
-            SEND_STRING(SS_UP(X_TAB));
-            // SEND_STRING(SS_UP(X_LSFT));
+            if (record->event.pressed) {
+              SEND_STRING(SS_DOWN(X_RIGHT));
+            } else {
+              SEND_STRING(SS_UP(X_RIGHT));
+            }
           }
-        } else if (ky_spc) {
-          if (record->event.pressed) {
-            // SEND_STRING(SS_DOWN(X_LSFT));
-            SEND_STRING(SS_DOWN(X_SPC));
-          } else {
-            SEND_STRING(SS_UP(X_SPC));
-            // SEND_STRING(SS_UP(X_LSFT));
-          }
-        } else {
-          if (record->event.pressed) {
-            SEND_STRING(SS_DOWN(X_RIGHT));
-          } else {
-            SEND_STRING(SS_UP(X_RIGHT));
-          }
-        }
-        return false;
-        break;
+          return false;
 
+        case MY_NAV_FROM_OP:
+          layer_move(_COLEMAK_FR);
+          set_oneshot_layer(_NAV, ONESHOT_START);
+          return false;
 
   }
   return true;

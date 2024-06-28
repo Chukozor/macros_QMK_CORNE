@@ -14,4 +14,4 @@ RGBLIGHT_ENABLE = yes
 # VIA_ENABLE = YES
 
 SRC += custom_files/french_symbols/french_symbols.c # include into the compilation
-SRC += custom_files/helpers.c
+SRC += custom_files/*.c

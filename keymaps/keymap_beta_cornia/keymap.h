@@ -122,4 +122,5 @@ enum custom_keycodes {
     // KY_UP,
     KY_SPC,
     MY_VIRG,
+    MY_NAV_FROM_OP,
 };
