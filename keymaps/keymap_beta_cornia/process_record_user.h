@@ -192,6 +192,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           ky_webnav = false;
           caps_lock_activated = false;
           shift_activated = false;
+          trace_op_nav = false;
           // spc_is_held = false;
           layer_move(_COLEMAK_FR);
         } else {
@@ -459,8 +460,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           return false;
 
         case MY_NAV_FROM_OP:
-          layer_move(_COLEMAK_FR);
-          set_oneshot_layer(_NAV, ONESHOT_START);
+          if (record->event.pressed) {
+            layer_on(_NAV);
+            trace_op_nav = true;
+          } else {
+            layer_off(_NAV);
+          }
+          // layer_move(_COLEMAK_FR);
+          // set_oneshot_layer(_NAV, ONESHOT_START);
           return false;
 
   }

@@ -1,5 +1,6 @@
 // ================= NAV_F_KEYS TAPDANCE ================
 bool nav_already_activated = false;
+bool trace_op_nav = false;
 // -------------------------------------------------------
 static tap nav_tap_state = {
   .is_press_action = true,
@@ -52,6 +53,10 @@ void nav_reset (tap_dance_state_t *state, void *user_data) {
     case DOUBLE_HOLD:
       layer_off(_F_KEYS);
       break;
+  }
+  if (trace_op_nav == true) {
+    layer_off(_NAV);
+    trace_op_nav = false;
   }
   nav_tap_state.state = 0;
 }
