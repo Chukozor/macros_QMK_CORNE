@@ -502,7 +502,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case HT_SPC:
             return 210;
         case MY_NAV:
-            return 200;
+            return 160;
         case HT_A:
             return 200;
         case HT_E:
