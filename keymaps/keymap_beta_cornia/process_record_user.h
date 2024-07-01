@@ -179,26 +179,60 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       //   }
       //   return false;
 
-      case MY_ESC:
-        if (record->event.pressed) {
-          tap_code(KC_ESC);
-          // soft_reset_keyboard();
-          // eeconfig_init();
-          clear_mods();
-          layer_clear();
-          nav_already_activated = false;
-          capslock_was_activated = false;
-          alt_tab_menu = false;
-          ky_webnav = false;
-          caps_lock_activated = false;
-          shift_activated = false;
-          trace_op_nav = false;
-          // spc_is_held = false;
-          layer_move(_COLEMAK_FR);
-        } else {
-          // nothing needed here
-        }
-        return false;
+      // case MY_ESC:
+      //   if (record->event.pressed) {
+      //     tap_code(KC_ESC);
+      //     // soft_reset_keyboard();
+      //     // eeconfig_init();
+      //     clear_mods();
+      //     layer_clear();
+      //     nav_already_activated = false;
+      //     capslock_was_activated = false;
+      //     alt_tab_menu = false;
+      //     ky_webnav = false;
+      //     caps_lock_activated = false;
+      //     shift_activated = false;
+      //     trace_op_nav = false;
+      //     // spc_is_held = false;
+      //     layer_move(_COLEMAK_FR);
+      //   } else {
+      //     // nothing needed here
+      //   }
+      //   return false;
+
+        case MY_ESC:
+          if (record->tap.count) { // Tap
+            if (record->event.pressed) {
+              // logic when pressed
+              tap_code(KC_ESC);
+              // soft_reset_keyboard();
+              // eeconfig_init();
+            } else {
+              // logic when released
+            }
+          } else { // Hold
+            if (record->event.pressed) {
+              clear_mods();
+              layer_clear();
+              nav_already_activated = false;
+              capslock_was_activated = false;
+              alt_tab_menu = false;
+              ky_webnav = false;
+              caps_lock_activated = false;
+              shift_activated = false;
+              trace_op_nav = false;
+              // spc_is_held = false;
+              layer_move(_COLEMAK_FR);
+              if (record->tap.interrupted) {
+                // logic when interrupted
+              } else {
+                // logic when not interrupted
+              }
+            } else {
+              // logic when released
+            }
+          }
+          return false;
 
       case WEB_D:
         // if (spc_is_held) {
@@ -497,6 +531,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         // case SFT_T(KC_SPC):
         //    return g_tapping_term + 1250;
+        case MY_ESC:
+            return 230;
         case MY_LSFT:
             return 160;
         case HT_SPC:
