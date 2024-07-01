@@ -32,8 +32,10 @@ enum combos {
   COMBO_OSM_SHIFT,
   COMBO_BOOT,
   TOGGLE_GAMING,
-  TOGGLE_OHDEER,
-  TOGGLE_OHDEER2
+  TOGGLE_OTHER_GAME,
+  TOGGLE_OTHER_GAME2,
+  FAST_SWITCH_GAME_COLEMAK_COMBO,
+  FAST_SWITCH_GAME_COLEMAK_COMBO2
   // COMBO_E_AIGU
 };
 
@@ -41,9 +43,11 @@ enum combos {
 const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT,TG(_NAV_LEFT), COMBO_END};
-const uint16_t PROGMEM toggle_gaming[] = {FR_Q, FR_W ,KC_F, KC_P, KC_G, COMBO_END};
-const uint16_t PROGMEM toggle_ohdeer[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
-const uint16_t PROGMEM toggle_ohdeer2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
+const uint16_t PROGMEM toggle_gaming[] = {FR_Q,FR_W,KC_F,KC_P,KC_G, COMBO_END};
+const uint16_t PROGMEM toggle_other_game[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
+const uint16_t PROGMEM toggle_other_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
+const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,MY_LSFT, COMBO_END};
+const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_LCTL,KC_LSFT, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
@@ -52,10 +56,13 @@ const uint16_t PROGMEM toggle_ohdeer2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_EN
 combo_t key_combos[] = {
     [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
     [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_GAMING)),
-    [TOGGLE_OHDEER]=COMBO(toggle_ohdeer, TG(_OHDEER)),
-    [TOGGLE_OHDEER2]=COMBO(toggle_ohdeer2, TG(_OHDEER)),
+    [TOGGLE_OTHER_GAME]=COMBO(toggle_other_game, TOGGLE_GAME),
+    [TOGGLE_OTHER_GAME2]=COMBO(toggle_other_game2, TOGGLE_GAME),
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
+    [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
+    [FAST_SWITCH_GAME_COLEMAK_COMBO]=COMBO(fast_switch_game_colemak_combo, FAST_SWITCH_GAME_COLEMAK),
+    [FAST_SWITCH_GAME_COLEMAK_COMBO2]=COMBO(fast_switch_game_colemak_combo2, FAST_SWITCH_GAME_COLEMAK),
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
     // [TOGGLE_GAMING_2]=COMBO(toggle_gaming_2, TG(_GAMING)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 
@@ -115,11 +122,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,MO(_NAV),  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
+                                            KC_P1,MO(_NAV),  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
       // _GAMING for gaming
-    [_OHDEER] = LAYOUT_split_3x6_3(
+    [_OTHER_GAME] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        MY_ESC,    FR_Q,    FR_W,    KC_F,    KC_P,    KC_G,                         KC_J,    KC_L,    KC_U,    KC_Y, FR_QUOT,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -127,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    FR_Z,    KC_X,    KC_S,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,    KC_T,  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
+                                            KC_P1,    KC_T,  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
   //   // QWERTY
@@ -298,17 +305,22 @@ void render_layer_status(void) {
     case _COLEMAK_FR :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      oled_write("COLE-  MAK       FR                           ", false);
+      if (toggle_game == true) {
+        // -------|"-----00000-----00000-----00000-----00000-----"
+        oled_write("COLE-  MAK       FR      (GAME  BG           ", false);
+      } else {
+        oled_write("COLE-  MAK       FR                        ", false);
+      }
       break;
     case _GAMING :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
       oled_write(" GAME                                        ", false);
       break;
-    case _OHDEER :
+    case _OTHER_GAME :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      oled_write("OHDEE    R                                   ", false);
+      oled_write("OTHER GAME                                   ", false);
       break;
     case _LATEX :
       // -------|"-----00000-----00000-----00000-----00000-----"
