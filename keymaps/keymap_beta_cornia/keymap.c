@@ -33,9 +33,9 @@ enum combos {
   COMBO_BOOT,
   TOGGLE_GAMING,
   TOGGLE_OTHER_GAME,
-  TOGGLE_OTHER_GAME2,
-  FAST_SWITCH_GAME_COLEMAK_COMBO,
-  FAST_SWITCH_GAME_COLEMAK_COMBO2
+  TOGGLE_OTHER_GAME2
+  // FAST_SWITCH_GAME_COLEMAK_COMBO,
+  // FAST_SWITCH_GAME_COLEMAK_COMBO2
   // COMBO_E_AIGU
 };
 
@@ -46,8 +46,8 @@ const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_
 const uint16_t PROGMEM toggle_gaming[] = {FR_Q,FR_W,KC_F,KC_P,KC_G, COMBO_END};
 const uint16_t PROGMEM toggle_other_game[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
 const uint16_t PROGMEM toggle_other_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
-const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,MY_LSFT, COMBO_END};
-const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_LCTL,KC_LSFT, COMBO_END};
+// const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,MY_LSFT, COMBO_END};
+// const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_LCTL,KC_LSFT, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
@@ -61,8 +61,8 @@ combo_t key_combos[] = {
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
-    [FAST_SWITCH_GAME_COLEMAK_COMBO]=COMBO(fast_switch_game_colemak_combo, FAST_SWITCH_GAME_COLEMAK),
-    [FAST_SWITCH_GAME_COLEMAK_COMBO2]=COMBO(fast_switch_game_colemak_combo2, FAST_SWITCH_GAME_COLEMAK),
+    // [FAST_SWITCH_GAME_COLEMAK_COMBO]=COMBO(fast_switch_game_colemak_combo, FAST_SWITCH_GAME_COLEMAK),
+    // [FAST_SWITCH_GAME_COLEMAK_COMBO2]=COMBO(fast_switch_game_colemak_combo2, FAST_SWITCH_GAME_COLEMAK),
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
     // [TOGGLE_GAMING_2]=COMBO(toggle_gaming_2, TG(_GAMING)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 

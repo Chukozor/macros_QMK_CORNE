@@ -7,11 +7,6 @@ bool ky_spc = false;
 bool toggle_game = false;
 bool fast_switch_game_colemak = false;
 
-void my_lctl_logic(keyrecord_t *record) { // let's pass it, in case you use record->event.pressed or something
-    some_cool_code();
-    super_cool_indeed();
-}
-
 #include "custom_files/functions_record_user.h"
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
