@@ -54,6 +54,7 @@
 enum layers{
     _COLEMAK_FR,
     _GAMING,
+    _OHDEER,
     _LATEX,
     _CAPS_LOCK,
     _F_KEYS,

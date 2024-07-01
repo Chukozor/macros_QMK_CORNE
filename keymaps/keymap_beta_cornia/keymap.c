@@ -31,7 +31,9 @@ enum combos {
   COMBO_MULTIMEDIA,
   COMBO_OSM_SHIFT,
   COMBO_BOOT,
-  TOGGLE_GAMING
+  TOGGLE_GAMING,
+  TOGGLE_OHDEER,
+  TOGGLE_OHDEER2
   // COMBO_E_AIGU
 };
 
@@ -40,6 +42,8 @@ const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMB
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT,TG(_NAV_LEFT), COMBO_END};
 const uint16_t PROGMEM toggle_gaming[] = {FR_Q, FR_W ,KC_F, KC_P, KC_G, COMBO_END};
+const uint16_t PROGMEM toggle_ohdeer[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
+const uint16_t PROGMEM toggle_ohdeer2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
@@ -48,6 +52,8 @@ const uint16_t PROGMEM toggle_gaming[] = {FR_Q, FR_W ,KC_F, KC_P, KC_G, COMBO_EN
 combo_t key_combos[] = {
     [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
     [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_GAMING)),
+    [TOGGLE_OHDEER]=COMBO(toggle_ohdeer, TG(_OHDEER)),
+    [TOGGLE_OHDEER2]=COMBO(toggle_ohdeer2, TG(_OHDEER)),
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
@@ -110,6 +116,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI,MO(_NAV),  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
+                                      //`--------------------------'  `--------------------------'
+  ),
+      // _GAMING for gaming
+    [_OHDEER] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+       MY_ESC,    FR_Q,    FR_W,    KC_F,    KC_P,    KC_G,                         KC_J,    KC_L,    KC_U,    KC_Y, FR_QUOT,  KC_TAB,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      KC_LCTL, KC_LSFT,    FR_A,    FR_W,    KC_D,    KC_T,                         KC_H,    KC_N,    KC_E,    KC_I,    KC_O, KC_LCTL,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      KC_LSFT,    FR_Z,    KC_X,    KC_S,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          KC_LGUI,    KC_T,  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
   //   // QWERTY
@@ -286,6 +304,11 @@ void render_layer_status(void) {
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
       oled_write(" GAME                                        ", false);
+      break;
+    case _OHDEER :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write("OHDEE    R                                   ", false);
       break;
     case _LATEX :
       // -------|"-----00000-----00000-----00000-----00000-----"
