@@ -1,4 +1,5 @@
 code pour aider :
+dans le keymap : A(KC_F4) donne "ALT+F4".
 
 void tap_e_grave(void) {
 	add_mods(MOD_BIT_LALT);

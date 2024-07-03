@@ -35,7 +35,8 @@ enum combos {
   TOGGLE_OTHER_GAME,
   TOGGLE_OTHER_GAME2,
   FAST_SWITCH_GAME_COLEMAK_COMBO,
-  FAST_SWITCH_GAME_COLEMAK_COMBO2
+  FAST_SWITCH_GAME_COLEMAK_COMBO2,
+  TOGGLE_WEB
   // COMBO_E_AIGU
 };
 
@@ -48,6 +49,7 @@ const uint16_t PROGMEM toggle_other_game[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_EN
 const uint16_t PROGMEM toggle_other_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
 const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,MY_LSFT, COMBO_END};
 const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_LCTL,KC_LSFT, COMBO_END};
+const uint16_t PROGMEM combo_toggle_web[] = {KC_LGUI,MY_NAV, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
@@ -63,6 +65,7 @@ combo_t key_combos[] = {
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     [FAST_SWITCH_GAME_COLEMAK_COMBO]=COMBO(fast_switch_game_colemak_combo, FAST_SWITCH_GAME_COLEMAK),
     [FAST_SWITCH_GAME_COLEMAK_COMBO2]=COMBO(fast_switch_game_colemak_combo2, FAST_SWITCH_GAME_COLEMAK),
+    [TOGGLE_WEB]=COMBO(combo_toggle_web, TG(_WEB_BROWSER)),
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
     // [TOGGLE_GAMING_2]=COMBO(toggle_gaming_2, TG(_GAMING)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 
@@ -195,13 +198,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
     [_WEB_BROWSER] = LAYOUT_split_3x6_3(
-  //,-------------------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC,    XXXXXXX, RCS(KC_T), WEB_TAB,   C(KC_T),RCS(KC_P),                        TEST1,   TEST2,   TEST3,   TEST4,   TEST5, XXXXXXX,
-  //|--------+-----------+----------+--------+----------+ --------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LCTL,    XXXXXXX,     WEB_G, KC_LALT,     WEB_D,  C(KC_N),                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, MY_LCTL,
-  //|--------+-----------+----------+--------+----------+---------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,  RCS(KC_N),  A(KC_F4), C(KC_D), RCS(KC_O),  XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+-----------+----------+--------+----------+---------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+  //,--------------------------------------------------------------.                    ,--------------------------------------------------------.
+       MY_ESC,    XXXXXXX,   XXXXXXX, WEB_TAB,   C(KC_T), RCS(KC_P),                    RCS(KC_P),  C(KC_T), WEB_TAB, XXXXXXX,   XXXXXXX, XXXXXXX,
+  //|--------+-----------+----------+--------+----------+----------|                    |--------+---------+--------+--------+----------+--------|
+      MY_LCTL,  RCS(KC_O),     WEB_G, KC_LALT,     WEB_D,  C(KC_N),                       C(KC_N),    WEB_G, KC_LALT,   WEB_D, RCS(KC_O), MY_LCTL,
+  //|--------+-----------+----------+--------+----------+----------|                    |--------+---------+--------+--------+----------+--------|
+      KC_LSFT,    XXXXXXX,   XXXXXXX, C(KC_D),   XXXXXXX, RCS(KC_N),                    RCS(KC_N),  XXXXXXX, C(KC_D), XXXXXXX,   XXXXXXX, XXXXXXX,
+  //|--------+-----------+----------+--------+----------+----------+--------|  |--------+--------+---------+--------+--------+----------+--------|
                                                  KC_LGUI,   MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, TG(_NAV_LEFT) 
                                           //`----------- ------------------'  `--------------------------'
   ),
