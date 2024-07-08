@@ -53,7 +53,7 @@ const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,MY_LSFT, COMB
 const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_LCTL,KC_LSFT, COMBO_END};
 const uint16_t PROGMEM combo_toggle_web[] = {KC_LGUI,MY_NAV, COMBO_END};
 const uint16_t PROGMEM toggle_RGB[] = {KC_LALT,CSTM_ENT,TG(_NAV_LEFT), COMBO_END};
-const uint16_t PROGMEM combo_clear_eeprom[] = {RGB_TOG, RGB_MOD, KC_LSFT,RGB_RMOD, RGB_SPD, COMBO_END};
+const uint16_t PROGMEM combo_clear_eeprom[] = {RGB_TOG, ____MOD, _I_COUL, __I_LUM, __I_SAT, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
@@ -284,17 +284,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
     [_RGB] = LAYOUT_split_3x6_3(
   //,------------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      XXXXXXX, RGB_HUI, XXXXXXX, RGB_HUD, RGB_SPI, XXXXXXX,
+       MY_ESC, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+---------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      RGB_TOG, RGB_MOD, KC_LSFT,RGB_RMOD, RGB_SPD, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      RGB_TOG, ____MOD, _I_COUL, __I_LUM, __I_SAT, __I_VIT,
   //|--------+--------+--------+--------+---------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      XXXXXXX, RGB_VAI, XXXXXXX, RGB_VAD, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+---------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX,  XXXXXXX,    XXXXXXX, XXXXXXX, TG(_RGB)
+                                          XXXXXXX, XXXXXXX,  XXXXXXX,    XXXXXXX, KC_LSFT, TG(_RGB)
                                       //`---------------------------'  `--------------------------'
   )
 };
 
+// |--------+--------+--------+--------+--------+--------|
+//   RGB_TOG, ____MOD, _I_COUL, __I_LUM, __I_SAT, __I_VIT,
+// |--------+--------+--------+--------+--------+--------|
 
   //   [_SPE] = LAYOUT_split_3x6_3(
   // //,-----------------------------------------------------.                    ,-----------------------------------------------------.
