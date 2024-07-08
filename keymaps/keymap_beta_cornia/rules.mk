@@ -10,7 +10,8 @@ LTO_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 DYNAMIC_TAPPING_TERM_ENABLE = yes
 SPLIT_KEYBOARD = yes
-RGBLIGHT_ENABLE = yes
+RGBLIGHT_ENABLE = no
+RGB_MATRIX_ENABLE = yes
 # VIA_ENABLE = YES
 
 SRC += custom_files/french_symbols/french_symbols.c # include into the compilation
