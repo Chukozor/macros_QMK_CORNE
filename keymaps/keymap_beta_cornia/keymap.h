@@ -32,8 +32,8 @@
 #define HT_SPC LT(_ACCENTS, KC_SPC)
 // #define MY_LCTL KC_LCTL
 // #define MY_LSFT LM(_SFT_COLEMAK_FR, MOD_LSFT)
-#define MO_COLFR TO(_COLEMAK_FR)
-#define MO_GAMING TO(_GAMING)
+// #define MO_COLFR TO(_COLEMAK_FR)
+// #define MO_GAMING TO(_GAMING)
 
 #define IMGLASS_CP LCTL(LSFT(KC_C))
 

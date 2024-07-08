@@ -36,7 +36,9 @@ enum combos {
   TOGGLE_OTHER_GAME2,
   FAST_SWITCH_GAME_COLEMAK_COMBO,
   FAST_SWITCH_GAME_COLEMAK_COMBO2,
-  TOGGLE_WEB
+  TOGGLE_WEB,
+  TOGGLE_RGB,
+  COMBO_CLEAR_EEPROM
   // COMBO_E_AIGU
 };
 
@@ -50,6 +52,8 @@ const uint16_t PROGMEM toggle_other_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMB
 const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,MY_LSFT, COMBO_END};
 const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_LCTL,KC_LSFT, COMBO_END};
 const uint16_t PROGMEM combo_toggle_web[] = {KC_LGUI,MY_NAV, COMBO_END};
+const uint16_t PROGMEM toggle_RGB[] = {KC_LALT,CSTM_ENT,TG(_NAV_LEFT), COMBO_END};
+const uint16_t PROGMEM combo_clear_eeprom[] = {RGB_TOG, RGB_MOD, KC_LSFT,RGB_RMOD, RGB_SPD, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
@@ -66,6 +70,8 @@ combo_t key_combos[] = {
     [FAST_SWITCH_GAME_COLEMAK_COMBO]=COMBO(fast_switch_game_colemak_combo, FAST_SWITCH_GAME_COLEMAK),
     [FAST_SWITCH_GAME_COLEMAK_COMBO2]=COMBO(fast_switch_game_colemak_combo2, FAST_SWITCH_GAME_COLEMAK),
     [TOGGLE_WEB]=COMBO(combo_toggle_web, TG(_WEB_BROWSER)),
+    [TOGGLE_RGB]=COMBO(toggle_RGB, TG(_RGB)),
+    [COMBO_CLEAR_EEPROM]=COMBO(combo_clear_eeprom, QK_CLEAR_EEPROM),
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
     // [TOGGLE_GAMING_2]=COMBO(toggle_gaming_2, TG(_GAMING)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 
@@ -278,13 +284,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
     [_RGB] = LAYOUT_split_3x6_3(
   //,------------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX,MO_GAMING,   DT_UP,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       MY_ESC, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      XXXXXXX, RGB_HUI, XXXXXXX, RGB_HUD, RGB_SPI, XXXXXXX,
   //|--------+--------+--------+--------+---------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, MO_COLFR, DT_DOWN,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      RGB_TOG, RGB_MOD, KC_LSFT,RGB_RMOD, RGB_SPD, XXXXXXX,
   //|--------+--------+--------+--------+---------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD,  XXXXXXX, DT_PRNT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,                      XXXXXXX, RGB_VAI, XXXXXXX, RGB_VAD, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+---------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX,  XXXXXXX,    XXXXXXX, XXXXXXX, _______
+                                          XXXXXXX, XXXXXXX,  XXXXXXX,    XXXXXXX, XXXXXXX, TG(_RGB)
                                       //`---------------------------'  `--------------------------'
   )
 };
