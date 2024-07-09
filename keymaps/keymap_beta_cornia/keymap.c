@@ -38,7 +38,9 @@ enum combos {
   FAST_SWITCH_GAME_COLEMAK_COMBO2,
   TOGGLE_WEB,
   TOGGLE_RGB,
-  COMBO_CLEAR_EEPROM
+  COMBO_CLEAR_EEPROM,
+  COMBO_ESPACE,
+  COMBO_ESPACE2
   // COMBO_E_AIGU
 };
 
@@ -54,6 +56,8 @@ const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_LCTL,KC_LSFT, COM
 const uint16_t PROGMEM combo_toggle_web[] = {KC_LGUI,MY_NAV, COMBO_END};
 const uint16_t PROGMEM toggle_RGB[] = {KC_LALT,CSTM_ENT,TG(_NAV_LEFT), COMBO_END};
 const uint16_t PROGMEM combo_clear_eeprom[] = {RGB_TOG, ____MOD, _I_COUL, __I_LUM, __I_SAT, COMBO_END};
+const uint16_t PROGMEM combo_espace[] = {KC_N, HT_E, COMBO_END};
+const uint16_t PROGMEM combo_espace2[] = {S(KC_N), S(KC_E), COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
@@ -72,6 +76,8 @@ combo_t key_combos[] = {
     [TOGGLE_WEB]=COMBO(combo_toggle_web, TG(_WEB_BROWSER)),
     [TOGGLE_RGB]=COMBO(toggle_RGB, TG(_RGB)),
     [COMBO_CLEAR_EEPROM]=COMBO(combo_clear_eeprom, QK_CLEAR_EEPROM),
+    [COMBO_ESPACE]=COMBO(combo_espace, KC_SPC),
+    [COMBO_ESPACE2]=COMBO(combo_espace2, KC_SPC),
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
     // [TOGGLE_GAMING_2]=COMBO(toggle_gaming_2, TG(_GAMING)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 
