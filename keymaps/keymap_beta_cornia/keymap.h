@@ -26,6 +26,8 @@
 #define MO_NUM MO(_NUMPAD)
 #define MO_RGB MO(_RGB)
 #define MO_NAV MO(_NAV)
+#define MO_FN MO(_F_KEYS)
+
 // #define MY_NAV MO(_NAV)
 // #define MO_SPE MO(_SPE)
 #define HT_ENT LT(_REG_SPE, KC_ENT)
