@@ -640,7 +640,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case COMBO_ESPACE2:
           return 15;
         default:
-          return 50;
+          return COMBO_TERM;
     }
 
     // // And if you're feeling adventurous, you can even decide by the keys in the chord,
@@ -654,7 +654,15 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     return COMBO_TERM;
 }
 
-
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SFT_T(KC_SPC):
+          return 10;
+            // return QUICK_TAP_TERM - 20;
+        default:
+          return QUICK_TAP_TERM;
+    }
+}
 
 // case MY_NAV: { // I am an alias for MO(_NAV)
 //     static uint8_t pressed_count = 0;
