@@ -455,20 +455,28 @@ bool shutdown_user(bool jump_to_bootloader) {
   return false;
 }
 
+RGB rgb_matrix_hsv_to_rgb(HSV hsv);
+
 bool rgb_matrix_indicators_user(void) {
     switch (get_highest_layer(layer_state)) {
-        // case _COLEMAK_FR:
-        //     break;
         case _OTHER_GAME:
           // rgb_matrix_set_color_all(80,130,190);
           // rgb_matrix_set_color(6, 255, 128, 0);
-          rgb_matrix_sethsv(80, 255, 25);
-          rgb_matrix_set_color(15, 255, 128, 0);
-          rgb_matrix_set_color(16, 255, 128, 0);
-          rgb_matrix_set_color(20, 255, 128, 0);
-          rgb_matrix_set_color(12, 255, 128, 0);
-          rgb_matrix_set_color(43, 255, 128, 0);
-          rgb_matrix_sethsv(80, 255, 25);
+          // rgb_matrix_sethsv(80, 255, 25);
+          HSV my_hsv = rgb_matrix_get_hsv();
+          RGB my_rgb = rgb_matrix_hsv_to_rgb(my_hsv);
+          rgb_matrix_set_color(15, my_rgb.r, my_rgb.g, my_rgb.b);
+          rgb_matrix_set_color(16, my_rgb.r, my_rgb.g, my_rgb.b);
+          rgb_matrix_set_color(20, my_rgb.r, my_rgb.g, my_rgb.b);
+          rgb_matrix_set_color(12, my_rgb.r, my_rgb.g, my_rgb.b);
+          rgb_matrix_set_color(43, my_rgb.r, my_rgb.g, my_rgb.b);
+          // rgb_matrix_set_color(15, 255, 128, 0);
+          // rgb_matrix_set_color(16, 255, 128, 0);
+          // rgb_matrix_set_color(20, 255, 128, 0);
+          // rgb_matrix_set_color(12, 255, 128, 0);
+          // rgb_matrix_set_color(43, 255, 128, 0);
+          // rgb_matrix_sethsv(80, 255, 25);
+          return true;
         // case TWO:
         //     rgb_matrix_set_color_all(0,0,0);
         //     rgb_matrix_set_color(6, 75, 255, 75);
