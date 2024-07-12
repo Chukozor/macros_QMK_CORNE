@@ -140,4 +140,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #endif
 
 #define RGB_MATRIX_STARTUP_HUE 85
+#define RGB_MATRIX_STARTUP_VAL 16
 #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_TYPING_HEATMAP

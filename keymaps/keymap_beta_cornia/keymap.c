@@ -460,9 +460,15 @@ bool rgb_matrix_indicators_user(void) {
         // case _COLEMAK_FR:
         //     break;
         case _OTHER_GAME:
-          rgb_matrix_set_color_all(80,130,190);
-          rgb_matrix_set_color(6, 255, 128, 0);
-          return false;
+          // rgb_matrix_set_color_all(80,130,190);
+          // rgb_matrix_set_color(6, 255, 128, 0);
+          rgb_matrix_sethsv(80, 255, 25);
+          rgb_matrix_set_color(15, 255, 128, 0);
+          rgb_matrix_set_color(16, 255, 128, 0);
+          rgb_matrix_set_color(20, 255, 128, 0);
+          rgb_matrix_set_color(12, 255, 128, 0);
+          rgb_matrix_set_color(43, 255, 128, 0);
+          rgb_matrix_sethsv(80, 255, 25);
         // case TWO:
         //     rgb_matrix_set_color_all(0,0,0);
         //     rgb_matrix_set_color(6, 75, 255, 75);
@@ -512,7 +518,8 @@ bool rgb_matrix_indicators_user(void) {
         //     // Allows for a preview of RGB adjustments
         //     rgb_matrix_set_color(1, 255, 255, 255);
         //     break;
-        default:
-          return true;
+        // default:
+        //   return true;
     }
+  return true;
 }
