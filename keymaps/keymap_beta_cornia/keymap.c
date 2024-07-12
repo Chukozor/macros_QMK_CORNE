@@ -455,21 +455,29 @@ bool shutdown_user(bool jump_to_bootloader) {
   return false;
 }
 
+
 RGB rgb_matrix_hsv_to_rgb(HSV hsv);
+
+// #include <stdio.h>
+int index_deplacement_gaming[] = {19,16,11,15};
+size_t taille_deplacement_gaming = sizeof(index_deplacement_gaming) / sizeof(index_deplacement_gaming[0]);
 
 bool rgb_matrix_indicators_user(void) {
     switch (get_highest_layer(layer_state)) {
         case _OTHER_GAME:
+          HSV my_hsv = rgb_matrix_get_hsv();
+          RGB my_rgb = rgb_matrix_hsv_to_rgb(my_hsv);
+          for(int i = 0; i < taille_deplacement_gaming; ++i) {
+            rgb_matrix_set_color(index_deplacement_gaming[i], my_rgb.r, my_rgb.g, my_rgb.b);
+          }
           // rgb_matrix_set_color_all(80,130,190);
           // rgb_matrix_set_color(6, 255, 128, 0);
           // rgb_matrix_sethsv(80, 255, 25);
-          HSV my_hsv = rgb_matrix_get_hsv();
-          RGB my_rgb = rgb_matrix_hsv_to_rgb(my_hsv);
-          rgb_matrix_set_color(15, my_rgb.r, my_rgb.g, my_rgb.b);
-          rgb_matrix_set_color(16, my_rgb.r, my_rgb.g, my_rgb.b);
-          rgb_matrix_set_color(20, my_rgb.r, my_rgb.g, my_rgb.b);
-          rgb_matrix_set_color(12, my_rgb.r, my_rgb.g, my_rgb.b);
-          rgb_matrix_set_color(43, my_rgb.r, my_rgb.g, my_rgb.b);
+          // rgb_matrix_set_color(15, my_rgb.r, my_rgb.g, my_rgb.b);
+          // rgb_matrix_set_color(16, my_rgb.r, my_rgb.g, my_rgb.b);
+          // rgb_matrix_set_color(20, my_rgb.r, my_rgb.g, my_rgb.b);
+          // rgb_matrix_set_color(12, my_rgb.r, my_rgb.g, my_rgb.b);
+          // rgb_matrix_set_color(43, my_rgb.r, my_rgb.g, my_rgb.b);
           // rgb_matrix_set_color(15, 255, 128, 0);
           // rgb_matrix_set_color(16, 255, 128, 0);
           // rgb_matrix_set_color(20, 255, 128, 0);
