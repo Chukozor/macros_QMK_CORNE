@@ -67,7 +67,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_TERM 50
 #define COMBO_TERM_PER_COMBO
 
-#ifdef RGB_MATRIX_ENABLE
+// #ifdef RGB_MATRIX_ENABLE
+
 #   define RGB_MATRIX_KEYPRESSES // reacts to keypresses
 // #   define RGB_MATRIX_KEYRELEASES // reacts to keyreleases (instead of keypresses)
 #   define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
@@ -136,4 +137,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define ENABLE_RGB_MATRIX_STARLIGHT_DUAL_SAT  // LEDs turn on and off at random at varying brightness, modifies user set saturation by +- 30
 #    define ENABLE_RGB_MATRIX_RIVERFLOW           // Modification to breathing animation, offset's animation depending on key location to simulate a river flowing
 #    define ENABLE_RGB_MATRIX_EFFECT_MAX    
-#endif
+// #endif
+
+#define RGB_MATRIX_STARTUP_HUE 85
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_TYPING_HEATMAP

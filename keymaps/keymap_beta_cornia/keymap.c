@@ -454,3 +454,65 @@ bool shutdown_user(bool jump_to_bootloader) {
   oled_render_boot(jump_to_bootloader);
   return false;
 }
+
+bool rgb_matrix_indicators_user(void) {
+    switch (get_highest_layer(layer_state)) {
+        // case _COLEMAK_FR:
+        //     break;
+        case _OTHER_GAME:
+          rgb_matrix_set_color_all(80,130,190);
+          rgb_matrix_set_color(6, 255, 128, 0);
+          return false;
+        // case TWO:
+        //     rgb_matrix_set_color_all(0,0,0);
+        //     rgb_matrix_set_color(6, 75, 255, 75);
+        //     rgb_matrix_set_color(7, 75, 255, 75);
+        //     break;
+        // case THREE: //GMAIL Layer
+        //     rgb_matrix_set_color_all(0, 0, 0);
+        //     rgb_matrix_set_color(6, 0, 204, 0);
+        //     rgb_matrix_set_color(7, 0, 204, 0);
+        //     rgb_matrix_set_color(8, 0, 204, 0);
+        //     break;
+        // case FOUR:
+        //     rgb_matrix_set_color_all(0, 0, 0);
+        //     rgb_matrix_set_color(6, 0, 128, 0);
+        //     rgb_matrix_set_color(7, 0, 128, 0);
+        //     rgb_matrix_set_color(8, 0, 128, 0);
+        //     rgb_matrix_set_color(3, 0, 128, 0);
+        //     break;
+        // case FIVE:
+        //     rgb_matrix_set_color_all(0, 0, 0);
+        //     rgb_matrix_set_color(6, 0, 255, 0);
+        //     rgb_matrix_set_color(7, 0, 255, 0);
+        //     rgb_matrix_set_color(8, 0, 255, 0);
+        //     rgb_matrix_set_color(3, 0, 255, 0);
+        //     rgb_matrix_set_color(4, 0, 255, 0);
+        //     break;
+        // case SIX:
+        //     rgb_matrix_set_color_all(0, 0, 0);
+        //     rgb_matrix_set_color(6, 0, 255, 0);
+        //     rgb_matrix_set_color(7, 0, 255, 0);
+        //     rgb_matrix_set_color(8, 0, 255, 0);
+        //     rgb_matrix_set_color(3, 0, 255, 0);
+        //     rgb_matrix_set_color(4, 0, 255, 0);
+        //     rgb_matrix_set_color(5, 0, 255, 0);
+        //     break;
+        // case SEVEN:
+        //     rgb_matrix_set_color_all(0, 0, 0);
+        //     rgb_matrix_set_color(6, 0, 255, 0);
+        //     rgb_matrix_set_color(7, 0, 255, 0);
+        //     rgb_matrix_set_color(8, 0, 255, 0);
+        //     rgb_matrix_set_color(3, 0, 255, 0);
+        //     rgb_matrix_set_color(4, 0, 255, 0);
+        //     rgb_matrix_set_color(5, 0, 255, 0);
+        //     rgb_matrix_set_color(1, 0, 255, 0);
+        //     break;
+        // case ADJUST:
+        //     // Allows for a preview of RGB adjustments
+        //     rgb_matrix_set_color(1, 255, 255, 255);
+        //     break;
+        default:
+          return true;
+    }
+}
