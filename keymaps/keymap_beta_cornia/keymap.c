@@ -147,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                         KC_H,    KC_N,    KC_E,    KC_I,    KC_O, KC_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_TAB,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
+      KC_TAB,     FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             MO_FN, KC_I, KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
@@ -459,7 +459,7 @@ bool shutdown_user(bool jump_to_bootloader) {
 RGB rgb_matrix_hsv_to_rgb(HSV hsv);
 
 // #include <stdio.h>
-int index_deplacement_gaming[] = {19,16,11,15};
+int index_deplacement_gaming[] = {19,16,11,15,43,46,49};
 size_t taille_deplacement_gaming = sizeof(index_deplacement_gaming) / sizeof(index_deplacement_gaming[0]);
 
 bool rgb_matrix_indicators_user(void) {
