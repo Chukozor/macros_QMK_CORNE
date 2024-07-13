@@ -455,6 +455,7 @@ bool shutdown_user(bool jump_to_bootloader) {
   return false;
 }
 
+#include "custom_files/leds/aux_leds.h"
 
 RGB rgb_matrix_hsv_to_rgb(HSV hsv);
 
@@ -468,7 +469,8 @@ bool rgb_matrix_indicators_user(void) {
           HSV my_hsv = rgb_matrix_get_hsv();
           RGB my_rgb = rgb_matrix_hsv_to_rgb(my_hsv);
           for(int i = 0; i < taille_deplacement_gaming; ++i) {
-            rgb_matrix_set_color(index_deplacement_gaming[i], my_rgb.r, my_rgb.g, my_rgb.b);
+            // rgb_matrix_set_color(index_deplacement_gaming[i], my_rgb.r, my_rgb.g, my_rgb.b);
+            set_color_split(index_deplacement_gaming[i],  my_rgb.r, my_rgb.g, my_rgb.b);
           }
           // rgb_matrix_set_color_all(80,130,190);
           // rgb_matrix_set_color(6, 255, 128, 0);
