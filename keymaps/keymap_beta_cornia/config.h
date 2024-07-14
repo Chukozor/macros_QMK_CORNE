@@ -25,16 +25,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Select hand configuration */
 
 
-#define SPLIT_POINTING_ENABLE
-#define POINTING_DEVICE_RIGHT
+// #define SPLIT_POINTING_ENABLE
+// #define POINTING_DEVICE_RIGHT
 // #define POINTING_DEVICE_ROTATION_90
-#define MASTER_RIGHT
+// #define MASTER_RIGHT
 // #define MASTER_LEFT
 
 
 // #define POINTING_DEVICE_RIGHT
 // #define POINTING_DEVICE_ROTATION_90
-#define CIRQUE_PINNACLE_DIAMETER_MM 40
+// #define CIRQUE_PINNACLE_DIAMETER_MM 40
 // #define CIRQUE_PINNACLE_TAP_ENABLE
 // #define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
 
@@ -62,11 +62,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_VAL_STEP 17
 #endif
 
-// #define OLED_BRIGHTNESS 1
+#define MASTER_RIGHT
+#define SPLIT_POINTING_ENABLE
+#define POINTING_DEVICE_RIGHT
+#define CIRQUE_PINNACLE_DIAMETER_MM 40
+// #define POINTING_DEVICE_ROTATION_90
+
+#define SPLIT_OLED_ENABLE
+#define SPLIT_LAYER_STATE_ENABLE
 // #define SPLIT_LED_STATE_ENABLE
-// #define SPLIT_MODS_ENABLE
 // #define SPLIT_WPM_ENABLE
-// #define SPLIT_OLED_ENABLE
+// #define OLED_BRIGHTNESS 1
+// #define SPLIT_MODS_ENABLE
+
 // #define OLED_TIMEOUT 10000
 
 #define TAPPING_TERM 160
