@@ -66,8 +66,8 @@
 
 enum layers{
     _COLEMAK_FR,
-    _GAMING,
     _OTHER_GAME,
+    _AUX_GAMING,
     _LATEX,
     _CAPS_LOCK,
     _F_KEYS,

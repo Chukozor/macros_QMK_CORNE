@@ -1,5 +1,6 @@
 # mes rules custom
 COMBO_ENABLE = yes
+COMBO_SHOULD_TRIGGER = yes
 KEY_OVERRIDE_ENABLE = yes
 SEND_STRING_ENABLE = yes
 # RGB_MATRIX_ENABLE = yes

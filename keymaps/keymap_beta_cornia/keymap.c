@@ -65,7 +65,7 @@ const uint16_t PROGMEM combo_espace2[] = {S(KC_N), S(KC_E), COMBO_END};
 // const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
 combo_t key_combos[] = {
     [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
-    [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_GAMING)),
+    [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_AUX_GAMING)),
     [TOGGLE_OTHER_GAME]=COMBO(toggle_other_game, TOGGLE_GAME),
     [TOGGLE_OTHER_GAME2]=COMBO(toggle_other_game2, TOGGLE_GAME),
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
@@ -86,6 +86,26 @@ combo_t key_combos[] = {
 //     COMBO(bis_temp_active_RGB, OSL(_RGB)),
 //     COMBO(bis_x_temp_active_RGB, OSL(_RGB)),
 };
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    /* Disable combo `SOME_COMBO` on layer `_LAYER_A` */
+    switch (combo_index) {
+        // case SOME_COMBO:
+        //   if (layer_state_is(_LAYER_A)) {
+        //     return false;
+        //   }
+        case COMBO_ESPACE2 - FAST_SWITCH_GAME_COLEMAK_COMBO:
+          if (layer_state_is(_OTHER_GAME)) {
+            return false;
+          }
+        default:
+          if (layer_state_is(_OTHER_GAME)) {
+            return false;
+          }
+    }
+
+    return true;
+}
 
 // ------------- END COMBO ---------------
 
@@ -128,19 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                           KC_LGUI,  MY_NAV,  HT_SPC,     KC_LALT,CSTM_ENT, TG(_NAV_LEFT)
                                       //`--------------------------'  `--------------------------'
   ),
-    // _GAMING for gaming
-    [_GAMING] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC,    FR_Q,    FR_W,    KC_F,    KC_P,    KC_G,                         KC_J,    KC_L,    KC_U,    KC_Y, FR_QUOT,  KC_TAB,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                         KC_H,    KC_N,    KC_E,    KC_I,    KC_O, KC_LCTL,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            KC_P1,MO(_NAV),  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
-                                      //`--------------------------'  `--------------------------'
-  ),
-      // _GAMING for gaming
+    // OTHER_GAMING for gaming
     [_OTHER_GAME] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        MY_ESC,    FR_Q,    FR_W,    KC_F,    KC_P,    KC_G,                         KC_J,    KC_L,    KC_U,    KC_Y, FR_QUOT,  KC_TAB,
@@ -149,7 +157,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TAB,     FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            MO_FN, KC_I, KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
+                                      MO(_AUX_GAMING), KC_I, KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
+                                      //`--------------------------'  `--------------------------'
+  ),
+    // _AUX_GAMING for gaming
+    [_AUX_GAMING] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+       MY_ESC, XXXXXXX, XXXXXXX, KC_LALT,CSTM_ENT,TG(_NAV_LEFT),                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      KC_LSFT, XXXXXXX,   KC_F1,   KC_F2,   KC_F3, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
   //   // QWERTY
@@ -330,15 +350,15 @@ void render_layer_status(void) {
         oled_write("COLE-  MAK       FR                        ", false);
       }
       break;
-    case _GAMING :
+    case _AUX_GAMING :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      oled_write(" GAME                                        ", false);
+      oled_write(" AUX  GAME                                   ", false);
       break;
     case _OTHER_GAME :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      oled_write("OTHER GAME                                   ", false);
+      oled_write(" GAME                                        ", false);
       break;
     case _LATEX :
       // -------|"-----00000-----00000-----00000-----00000-----"
