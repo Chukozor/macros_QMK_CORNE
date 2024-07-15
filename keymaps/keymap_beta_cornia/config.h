@@ -64,6 +64,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MASTER_RIGHT
 // #define MASTER_LEFT
+// (use MASTER_LEFT only to flash on the left side, and use MASTER_RIGHT to flash on the right side, and ALWAYS connect the USB to the right side)
+
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_RIGHT
 #define CIRQUE_PINNACLE_DIAMETER_MM 40
