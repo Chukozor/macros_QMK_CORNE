@@ -67,16 +67,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_RIGHT
 #define CIRQUE_PINNACLE_DIAMETER_MM 40
+#define CIRQUE_PINNACLE_CURVED_OVERLAY
+#define CIRQUE_PINNACLE_ATTENUATION EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_2X
 // #define POINTING_DEVICE_ROTATION_90
+#define CIRQUE_PINNACLE_TAP_ENABLE
+#define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE
+#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
 
 #undef SPLIT_OLED_ENABLE
 #define SPLIT_LAYER_STATE_ENABLE
 // #define SPLIT_LED_STATE_ENABLE
 // #define SPLIT_WPM_ENABLE
-// #define OLED_BRIGHTNESS 1
+#define OLED_BRIGHTNESS 1
 // #define SPLIT_MODS_ENABLE
 
-// #define OLED_TIMEOUT 10000
+#define OLED_TIMEOUT 10000
 
 #define TAPPING_TERM 160
 #define TAPPING_TERM_PER_KEY
@@ -140,7 +145,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define ENABLE_RGB_MATRIX_PIXEL_FLOW  // Pulsing RGB flow along LED wiring with random hues
 #    define ENABLE_RGB_MATRIX_PIXEL_RAIN // Randomly light keys with random hues
 // enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined
+// ======================================================================
 #    define ENABLE_RGB_MATRIX_TYPING_HEATMAP // How hot is your WPM!
+#define RGB_MATRIX_TYPING_HEATMAP_SPREAD 40 // Limit the distance the effect spreads to surrounding keys.
+#define RGB_MATRIX_TYPING_HEATMAP_SLIM // Remove the spread effect entirely.
+#define RGB_MATRIX_TYPING_HEATMAP_INCREASE_STEP 32 // Decreasing this value increases the number of keystrokes needed to fully heat up the key.
+// ======================================================================
 #    define ENABLE_RGB_MATRIX_DIGITAL_RAIN // That famous computer simulation
 // enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined
 #    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE // Pulses keys hit to hue & value then fades value out
