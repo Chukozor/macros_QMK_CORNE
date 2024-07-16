@@ -21,7 +21,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "C_Cpp.updateChannel": "Insiders",
   "yaml.schemas": {
-    "file:///c%3A/Users/Chuck/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///c%3A/Users/PUT_MY_USER_NAME_HERE/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
     // TODO put name of user in the adress
   },
   "atlascode.bitbucket.enabled": true,
@@ -32,6 +32,21 @@
   "explorer.confirmDragAndDrop": false,
   "workbench.settings.applyToAllProfiles": [],
   "C_Cpp.dimInactiveRegions": false,
+
+  // The number of spaces a tab is equal to. This setting is overridden
+  // based on the file contents when `editor.detectIndentation` is true.
+  "editor.tabSize": 2,
+
+  // Insert spaces when pressing Tab. This setting is overriden
+  // based on the file contents when `editor.detectIndentation` is true.
+  "editor.insertSpaces": true,
+
+  // When opening a file, `editor.tabSize` and `editor.insertSpaces`
+  // will be detected based on the file contents. Set to false to keep
+  // the values you've explicitly set, above.
+  "editor.detectIndentation": false,
+
+
   "todo-tree.highlights.defaultHighlight": {
     "icon": "alert",
     "type": "text",

@@ -40,3 +40,32 @@ void set_color_split(uint8_t index_code, uint8_t r, uint8_t g, uint8_t b) {
         index_code += 27;
     rgb_matrix_set_color(index_code, r, g, b);
 }
+
+// ==========================================================
+// actual function for leds on layers 
+
+RGB rgb_matrix_hsv_to_rgb(HSV hsv);
+
+// #include <stdio.h>
+int index_deplacement_gaming_leds[] = {19,16,11,15,43,46,49};
+size_t taille_deplacement_gaming_leds = sizeof(index_deplacement_gaming) / sizeof(index_deplacement_gaming[0]);
+
+int index_CapsLock_leds[] = {19,16,11,15,43,46,49};
+size_t taille_CapsLock = sizeof(index_deplacement_gaming) / sizeof(index_deplacement_gaming[0]);
+
+bool rgb_matrix_indicators_user(void) {
+  switch (get_highest_layer(layer_state)) {
+    case _OTHER_GAME:
+      HSV my_hsv = rgb_matrix_get_hsv();
+      RGB my_rgb = rgb_matrix_hsv_to_rgb(my_hsv);
+      for(int i = 0; i < taille_deplacement_gaming_leds; ++i) {
+        // rgb_matrix_set_color(index_deplacement_gaming[i], my_rgb.r, my_rgb.g, my_rgb.b);
+        set_color_split(index_deplacement_gaming_leds[i],  my_rgb.r, my_rgb.g, my_rgb.b);
+      }
+
+      return true;
+    // default:
+    //   return true;
+  }
+  return true;
+}
