@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define CIRQUE_PINNACLE_TAP_ENABLE
 // #define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
 
-// #define EE_HANDS
+#define EE_HANDS
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
@@ -62,7 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_VAL_STEP 17
 #endif
 
-#define MASTER_RIGHT
+// #define MASTER_RIGHT
 // #define MASTER_LEFT
 // (use MASTER_LEFT only to flash on the left side, and use MASTER_RIGHT to flash on the right side, and ALWAYS connect the USB to the right side)
 
