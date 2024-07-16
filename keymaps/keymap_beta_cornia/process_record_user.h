@@ -121,8 +121,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           if (record->event.pressed) { // pressed
             // if (!record->tap.interrupted) {
               if (is_accent_layer()) {
-                layer_on(_RGB);
-              } else {
+              //   layer_on(_RGB);
+              // } else {
                 layer_on(_REG_SPE);
               }
             // } 
@@ -136,7 +136,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           else { // released
             layer_off(_REG_SPE);
-            layer_off(_RGB);
+            // layer_off(_RGB);
           }
           return false;
         }
