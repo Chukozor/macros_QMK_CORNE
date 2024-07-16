@@ -43,15 +43,12 @@ void set_color_split(uint8_t index_code, uint8_t r, uint8_t g, uint8_t b) {
 
 // ==========================================================
 // actual function for leds on layers
-
-RGB rgb_matrix_hsv_to_rgb(HSV hsv);
-
 // #include <stdio.h>
 int  index_deplacement_gaming_leds[] = {19, 16, 11, 15, 43, 46, 49};
-size_t taille_deplacement_gaming_leds  = sizeof(index_deplacement_gaming_leds) / sizeof(index_deplacement_gaming_leds[0]);
+size_t size_deplacement_gaming_leds  = sizeof(index_deplacement_gaming_leds) / sizeof(index_deplacement_gaming_leds[0]);
 
 int  index_CapsLock_leds[] = {18, 17, 16, 15, 44, 43, 45};
-size_t taille_CapsLock_leds     = sizeof(index_CapsLock_leds) / sizeof(index_CapsLock_leds[0]);
+size_t size_CapsLock_leds     = sizeof(index_CapsLock_leds) / sizeof(index_CapsLock_leds[0]);
 
 bool rgb_matrix_indicators_user(void) {
   HSV hsv;
@@ -61,7 +58,7 @@ bool rgb_matrix_indicators_user(void) {
       case _GAME:
         hsv = (HSV){255, 255, rgb_matrix_get_val()};
         rgb = hsv_to_rgb(hsv);
-        for (int i = 0; i < taille_deplacement_gaming_leds; ++i) {
+        for (int i = 0; i < size_deplacement_gaming_leds; ++i) {
           // rgb_matrix_set_color(index_deplacement_gaming[i], rgb.r, rgb.g, rgb.b);
           set_color_split(index_deplacement_gaming_leds[i], rgb.r, rgb.g, rgb.b);
         }
@@ -69,7 +66,7 @@ bool rgb_matrix_indicators_user(void) {
       case _AUX_GAME:
         hsv = (HSV){170, 255, rgb_matrix_get_val()};
         rgb = hsv_to_rgb(hsv);
-        for (int i = 0; i < taille_CapsLock_leds; ++i) {
+        for (int i = 0; i < size_CapsLock_leds; ++i) {
           // rgb_matrix_set_color(index_deplacement_gaming[i], rgb.r, rgb.g, rgb.b);
           set_color_split(index_CapsLock_leds[i], rgb.r, rgb.g, rgb.b);
         }
