@@ -21,7 +21,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "C_Cpp.updateChannel": "Insiders",
   "yaml.schemas": {
-    "file:///c%3A/Users/PUT_MY_USER_NAME_HERE/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///c%3A/Users/PUT_MY_USER_NAME_HER/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
     // TODO put name of user in the adress
   },
   "atlascode.bitbucket.enabled": true,
@@ -47,14 +47,14 @@
   "editor.detectIndentation": false,
 
 
-  "todo-tree.highlights.defaultHighlight": {
-    "icon": "alert",
-    "type": "text",
-    "foreground": "black",
-    "background": "orange",
-    "opacity": 50,
-    "iconColour": "orange"
-  },
+  // "todo-tree.highlights.defaultHighlight": {
+  //   "icon": "alert",
+  //   "type": "text",
+  //   "foreground": "black",
+  //   "background": "orange",
+  //   "opacity": 50,
+  //   "iconColour": "orange"
+  // },
   "todo-tree.highlights.customHighlight": {
     "TODO": {
       "icon": "star-fill",
@@ -71,6 +71,21 @@
       "background": "chartreuse",
       "iconColour": "orange",
       "gutterIcon": true
+    },
+    "XXX": {
+      "icon": "alert-fill",
+      "type": "none",
+      "foreground": "black",
+      "background": "chartreuse",
+      "iconColour": "orange",
+      "gutterIcon": true
     }
-  }
+  },
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[yaml]": {
+    "editor.autoIndent": "advanced"
+  },
+  "editor.autoIndent": "advanced"
 }

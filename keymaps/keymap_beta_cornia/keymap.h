@@ -66,8 +66,8 @@
 
 enum layers{
     _COLEMAK_FR,
-    _OTHER_GAME,
-    _AUX_GAMING,
+    _GAME,
+    _AUX_GAME,
     _LATEX,
     _CAPS_LOCK,
     _F_KEYS,
@@ -137,6 +137,6 @@ enum custom_keycodes {
     KY_SPC,
     MY_VIRG,
     MY_NAV_FROM_OP,
-    TOGGLE_GAME,
+    TG_GAME,
     FAST_SWITCH_GAME_COLEMAK,
 };

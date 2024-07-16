@@ -31,9 +31,9 @@ enum combos {
   COMBO_MULTIMEDIA,
   COMBO_OSM_SHIFT,
   COMBO_BOOT,
-  TOGGLE_GAMING,
-  TOGGLE_OTHER_GAME,
-  TOGGLE_OTHER_GAME2,
+  // TOGGLE_GAMING,
+  TOGGLE_GAME,
+  TOGGLE_GAME2,
   FAST_SWITCH_GAME_COLEMAK_COMBO,
   FAST_SWITCH_GAME_COLEMAK_COMBO2,
   TOGGLE_WEB,
@@ -48,9 +48,9 @@ enum combos {
 const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT,TG(_NAV_LEFT), COMBO_END};
-const uint16_t PROGMEM toggle_gaming[] = {FR_Q,FR_W,KC_F,KC_P,KC_G, COMBO_END};
-const uint16_t PROGMEM toggle_other_game[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
-const uint16_t PROGMEM toggle_other_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
+// const uint16_t PROGMEM toggle_gaming[] = {FR_Q,FR_W,KC_F,KC_P,KC_G, COMBO_END};
+const uint16_t PROGMEM toggle_game[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
+const uint16_t PROGMEM toggle_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
 const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,MY_LSFT, COMBO_END};
 const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_TAB, KC_LCTL, COMBO_END};
 const uint16_t PROGMEM combo_toggle_web[] = {KC_LGUI,MY_NAV, COMBO_END};
@@ -65,9 +65,9 @@ const uint16_t PROGMEM combo_espace2[] = {S(KC_N), S(KC_E), COMBO_END};
 // const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
 combo_t key_combos[] = {
     [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
-    [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_AUX_GAMING)),
-    [TOGGLE_OTHER_GAME]=COMBO(toggle_other_game, TOGGLE_GAME),
-    [TOGGLE_OTHER_GAME2]=COMBO(toggle_other_game2, TOGGLE_GAME),
+    // [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_AUX_GAME)),
+    [TOGGLE_GAME]=COMBO(toggle_game, TG_GAME),
+    [TOGGLE_GAME2]=COMBO(toggle_game2, TG_GAME),
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
@@ -95,11 +95,11 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         //     return false;
         //   }
         case COMBO_ESPACE2 - FAST_SWITCH_GAME_COLEMAK_COMBO:
-          if (layer_state_is(_OTHER_GAME)) {
+          if (layer_state_is(_GAME)) {
             return false;
           }
         default:
-          if (layer_state_is(_OTHER_GAME)) {
+          if (layer_state_is(_GAME)) {
             return false;
           }
     }
@@ -149,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
     // OTHER_GAMING for gaming
-    [_OTHER_GAME] = LAYOUT_split_3x6_3(
+    [_GAME] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        MY_ESC,    FR_Q,    FR_W,    KC_F,    KC_P,    KC_G,                         KC_J,    KC_L,    KC_U,    KC_Y, FR_QUOT,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -157,11 +157,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TAB,     FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                      MO(_AUX_GAMING), KC_I, KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
+                                      MO(_AUX_GAME), KC_I, KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX 
                                       //`--------------------------'  `--------------------------'
   ),
-    // _AUX_GAMING for gaming
-    [_AUX_GAMING] = LAYOUT_split_3x6_3(
+    // _AUX_GAME for gaming
+    [_AUX_GAME] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        MY_ESC, XXXXXXX, XXXXXXX, KC_LALT,CSTM_ENT,TG(_NAV_LEFT),                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -343,22 +343,22 @@ void render_layer_status(void) {
     case _COLEMAK_FR :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
-      if (toggle_game == true) {
+      if (toggle_game_bool == true) {
         // -------|"-----00000-----00000-----00000-----00000-----"
         oled_write("COLE-  MAK       FR      (GAME  BG           ", false);
       } else {
         oled_write("COLE-  MAK       FR                        ", false);
       }
       break;
-    case _AUX_GAMING :
-      // -------|"-----00000-----00000-----00000-----00000-----"
-      //         "                                             "
-      oled_write(" AUX  GAME                                   ", false);
-      break;
-    case _OTHER_GAME :
+    case _GAME :
       // -------|"-----00000-----00000-----00000-----00000-----"
       //         "                                             "
       oled_write(" GAME                                        ", false);
+      break;
+    case _AUX_GAME :
+      // -------|"-----00000-----00000-----00000-----00000-----"
+      //         "                                             "
+      oled_write(" AUX  GAME                                   ", false);
       break;
     case _LATEX :
       // -------|"-----00000-----00000-----00000-----00000-----"
