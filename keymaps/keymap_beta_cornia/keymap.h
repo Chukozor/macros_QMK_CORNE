@@ -73,13 +73,13 @@ enum layers{
     _F_KEYS,
     _NAV_LEFT,
     _WEB_BROWSER,
-    _NOTHING_FOR_THE_MOMENT,
     _NAV,
     _OP_NAV,
     _ACCENTS,
     _REG_SPE,
     _MULTIMEDIA,
-    _RGB
+    _RGB,
+    _MOUSE_LAYER
 };
 
 enum custom_keycodes {

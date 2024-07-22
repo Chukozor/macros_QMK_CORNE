@@ -66,6 +66,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MASTER_LEFT
 // (use MASTER_LEFT only to flash on the left side, and use MASTER_RIGHT to flash on the right side, and ALWAYS connect the USB to the right side)
 
+// =====================================================================
+// TRACKPAD
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_RIGHT
 #define CIRQUE_PINNACLE_DIAMETER_MM 40
@@ -84,6 +86,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSE_EXTENDED_REPORT
 // Limits the frequency that the sensor is polled for motion.
 #define POINTING_DEVICE_TASK_THROTTLE_MS 10
+
+// MOUSE AUTO-LAYER
+// in config.h:
+#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
+// only required if not setting mouse layer elsewhere
+#define AUTO_MOUSE_DEFAULT_LAYER 14
+#define AUTO_MOUSE_TIME 250
+#define AUTO_MOUSE_DELAY 100
+
+// =====================================================================
 
 #undef SPLIT_OLED_ENABLE
 #define SPLIT_LAYER_STATE_ENABLE
