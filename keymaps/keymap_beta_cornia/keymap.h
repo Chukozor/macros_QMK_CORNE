@@ -75,11 +75,11 @@ enum layers{
     _WEB_BROWSER,
     _NAV,
     _OP_NAV,
+    _MOUSE_LAYER,
     _ACCENTS,
     _REG_SPE,
     _MULTIMEDIA,
-    _RGB,
-    _MOUSE_LAYER
+    _RGB
 };
 
 enum custom_keycodes {
