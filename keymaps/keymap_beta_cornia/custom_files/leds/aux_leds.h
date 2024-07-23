@@ -55,6 +55,9 @@ bool rgb_matrix_indicators_user(void) {
   RGB rgb;
   #ifdef RGB_MATRIX_ENABLE
     switch (get_highest_layer(layer_state)) {
+      // case _COLEMAK_FR:
+      //   rgb_matrix_mode_noeeprom(ENABLE_RGB_MATRIX_TYPING_HEATMAP);
+      //   break;
       case _GAME:
         hsv = (HSV){255, 255, rgb_matrix_get_val()};
         rgb = hsv_to_rgb(hsv);
@@ -89,6 +92,9 @@ bool rgb_matrix_indicators_user(void) {
           rgb_matrix_set_color(i+27, rgb.r, rgb.g, rgb.b);
         }
         break;
+      // case _NAV:
+      //   rgb_matrix_mode(RGB_MATRIX_DIGITAL_RAIN);
+      //   break;
     }
   #endif
   return false;
