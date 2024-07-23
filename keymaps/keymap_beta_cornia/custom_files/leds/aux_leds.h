@@ -74,15 +74,21 @@ bool rgb_matrix_indicators_user(void) {
       case _MOUSE_LAYER:
         hsv = (HSV){140, 255, rgb_matrix_get_val()};
         rgb = hsv_to_rgb(hsv);
-        int j = 33;
         for (int i = 6; i <= 26; ++i) {
           // rgb_matrix_set_color(index_deplacement_gaming[i], rgb.r, rgb.g, rgb.b);
           rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
-          rgb_matrix_set_color(j, rgb.r, rgb.g, rgb.b);
-          ++j;
+          rgb_matrix_set_color(i+27, rgb.r, rgb.g, rgb.b);
         }
         break;
-
+      case _CAPS_LOCK:
+        hsv = (HSV){215, 255, rgb_matrix_get_val()};
+        rgb = hsv_to_rgb(hsv);
+        for (int i = 6; i <= 26; ++i) {
+          // rgb_matrix_set_color(index_deplacement_gaming[i], rgb.r, rgb.g, rgb.b);
+          rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
+          rgb_matrix_set_color(i+27, rgb.r, rgb.g, rgb.b);
+        }
+        break;
     }
   #endif
   return false;
