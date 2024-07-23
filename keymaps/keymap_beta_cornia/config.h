@@ -93,7 +93,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // only required if not setting mouse layer elsewhere
 #define AUTO_MOUSE_DEFAULT_LAYER 10
 #define AUTO_MOUSE_TIME 250
-#define AUTO_MOUSE_DELAY 100
+#define AUTO_MOUSE_DELAY 300
 
 // =====================================================================
 
