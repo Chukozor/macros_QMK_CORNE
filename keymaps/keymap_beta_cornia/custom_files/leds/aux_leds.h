@@ -92,14 +92,15 @@ bool rgb_matrix_indicators_user(void) {
           rgb_matrix_set_color(i+27, rgb.r, rgb.g, rgb.b);
         }
         break;
-      case _NAV:
-        hsv = (HSV){45, 255, rgb_matrix_get_val()};
-        rgb = hsv_to_rgb(hsv);
-        for (int i = 6; i <= 26; ++i) {
-          // rgb_matrix_set_color(index_deplacement_gaming[i], rgb.r, rgb.g, rgb.b);
-          rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
-          rgb_matrix_set_color(i+27, rgb.r, rgb.g, rgb.b);
-        }
+      // case _NAV:
+      //   hsv = (HSV){45, 255, rgb_matrix_get_val()};
+      //   rgb = hsv_to_rgb(hsv);
+      //   for (int i = 6; i <= 26; ++i) {
+      //     // rgb_matrix_set_color(index_deplacement_gaming[i], rgb.r, rgb.g, rgb.b);
+      //     rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
+      //     rgb_matrix_set_color(i+27, rgb.r, rgb.g, rgb.b);
+      //   }
+      //   break;
     }
   #endif
   return false;
