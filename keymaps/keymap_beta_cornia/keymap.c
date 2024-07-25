@@ -356,7 +356,7 @@ void render_layer_status(void) {
       //         "                                             "
       if (game_mode) {
         // -------|"-----00000-----00000-----00000-----00000-----"
-        oled_write("COLE-  MAK       FR      (GAME  BG           ", false);
+        oled_write("COLE-  MAK       FR      (GAME  BG)          ", false);
       } else {
         oled_write("COLE-  MAK       FR                        ", false);
       }
