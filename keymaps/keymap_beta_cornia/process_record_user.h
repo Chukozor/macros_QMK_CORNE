@@ -511,6 +511,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               if (game_mode == false) {
                 game_mode = true;
                 layer_on(_GAME);
+              } else if (IS_LAYER_ON(_COLEMAK_FR)) {
+                layer_on(_GAME);
               } else {
                 game_mode = false;
                 layer_off(_GAME);
