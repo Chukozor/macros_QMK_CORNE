@@ -23,3 +23,4 @@ CONVERT_TO = rp2040_ce
 
 SRC += custom_files/french_symbols/french_symbols.c # include into the compilation
 SRC += custom_files/helpers.c
+SRC += sync.c

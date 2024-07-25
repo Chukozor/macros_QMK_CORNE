@@ -37,6 +37,9 @@
 // #define MO_COLFR TO(_COLEMAK_FR)
 // #define MO_GAMING TO(_GAMING)
 
+bool test_game_mode(void);
+void toggle_game_mode(bool);
+
 #define IMGLASS_CP LCTL(LSFT(KC_C))
 #define ____MOD RGB_MOD
 #define _I_RMOD RGB_RMOD

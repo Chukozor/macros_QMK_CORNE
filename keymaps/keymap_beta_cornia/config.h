@@ -198,3 +198,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_STARTUP_HUE 85
 #define RGB_MATRIX_STARTUP_VAL 68
 #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_TYPING_HEATMAP
+
+#define SPLIT_TRANSACTION_IDS_USER USER_SYNC_A

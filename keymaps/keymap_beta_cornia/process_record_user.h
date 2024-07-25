@@ -4,8 +4,6 @@
 bool alt_tab_menu = false;
 bool ky_webnav = false;
 bool ky_spc = false;
-bool toggle_game_bool = false;
-bool fast_switch_game_colemak = false;
 
 #include "custom_files/functions_record_user.h"
 
@@ -223,8 +221,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               caps_lock_activated = false;
               shift_activated = false;
               trace_op_nav = false;
-              toggle_game_bool = false;
-              fast_switch_game_colemak = false;
+              game_mode = false;
               // spc_is_held = false;
               layer_move(_COLEMAK_FR);
               if (record->tap.interrupted) {
@@ -511,11 +508,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case TG_GAME:
           if (record->event.pressed) {
               // logic when pressed
-              if (toggle_game_bool == false) {
-                toggle_game_bool = true;
+              if (game_mode == false) {
+                game_mode = true;
                 layer_on(_GAME);
               } else {
-                toggle_game_bool = false;
+                game_mode = false;
                 layer_off(_GAME);
               }
             } else {
@@ -524,7 +521,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           return false;
 
         case FAST_SWITCH_GAME_COLEMAK:
-          if (toggle_game_bool == true) {
+          if (game_mode == true) {
             if (record->event.pressed) {
               layer_invert(_GAME);
             }
