@@ -14,8 +14,10 @@ void ctrl_finished (tap_dance_state_t *state, void *user_data) {
   ctrl_tap_state.state = ma_cur_dance(state);
   switch (ctrl_tap_state.state) {
     case SINGLE_TAP:
-      layer_invert(_WEB_BROWSER);
-      break;
+      if (game_mode == false) {
+        layer_invert(_WEB_BROWSER);
+      }
+      break;   
     case SINGLE_HOLD:
       if (layer_state_is(_CAPS_LOCK)) {
         capslock_was_activated = true;

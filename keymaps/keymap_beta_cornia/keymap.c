@@ -23,6 +23,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "custom_files/helpers.h"
 #include "custom_files/french_symbols/french_symbols.h"
 #include "custom_files/french_symbols/shift_behaviours.c"
+// -----------------------------------
+bool game_mode = 0;
+bool test_game_mode(void){
+ return game_mode;
+}
+
+void toggle_game_mode(bool value){
+ game_mode = value;
+}
+// -----------------------------------
 #include "custom_files/tap_dances/tap_dance.h"
 
 
@@ -131,16 +141,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     NULL // Null terminate the array of overrides!
 };
 
-//  -----------------------------------
-bool game_mode = 0;
-bool test_game_mode(void){
- return game_mode;
-}
-
-void toggle_game_mode(bool value){
- game_mode = value;
-}
-
+// -----------------------------------
 // -----------------------------------
 #include "process_record_user.h"
 // -----------------------------------
