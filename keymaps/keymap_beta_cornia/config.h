@@ -24,7 +24,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Select hand configuration */
 
-#define MASTER_LEFT
+
+// #define SPLIT_POINTING_ENABLE
+// #define POINTING_DEVICE_RIGHT
+// #define POINTING_DEVICE_ROTATION_90
+// #define MASTER_RIGHT
+// #define MASTER_LEFT
+
+
+// #define POINTING_DEVICE_RIGHT
+// #define POINTING_DEVICE_ROTATION_90
+// #define CIRQUE_PINNACLE_DIAMETER_MM 40
+// #define CIRQUE_PINNACLE_TAP_ENABLE
+// #define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
+
+#define EE_HANDS
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
@@ -48,11 +62,48 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_VAL_STEP 17
 #endif
 
-#define OLED_BRIGHTNESS 1
+// #define MASTER_RIGHT
+// #define MASTER_LEFT
+// (use MASTER_LEFT only to flash on the left side, and use MASTER_RIGHT to flash on the right side, and ALWAYS connect the USB to the right side)
+
+// =====================================================================
+// TRACKPAD
+#define SPLIT_POINTING_ENABLE
+#define POINTING_DEVICE_RIGHT
+#define CIRQUE_PINNACLE_DIAMETER_MM 40
+#define CIRQUE_PINNACLE_CURVED_OVERLAY
+#define CIRQUE_PINNACLE_ATTENUATION EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_2X
+// #define POINTING_DEVICE_ROTATION_90
+
+#define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_RELATIVE_MODE
+// #define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_ABSOLUTE_MODE
+
+#define CIRQUE_PINNACLE_TAP_ENABLE
+#define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE
+#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
+
+// Enables support for extended i16 mouse reports (instead of i8).
+#define MOUSE_EXTENDED_REPORT
+// Limits the frequency that the sensor is polled for motion.
+#define POINTING_DEVICE_TASK_THROTTLE_MS 10
+
+// MOUSE AUTO-LAYER
+// in config.h:
+#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
+// only required if not setting mouse layer elsewhere
+#define AUTO_MOUSE_DEFAULT_LAYER 10
+#define AUTO_MOUSE_TIME 250
+#define AUTO_MOUSE_DELAY 300
+
+// =====================================================================
+
+#undef SPLIT_OLED_ENABLE
+#define SPLIT_LAYER_STATE_ENABLE
 #define SPLIT_LED_STATE_ENABLE
-#define SPLIT_MODS_ENABLE
 #define SPLIT_WPM_ENABLE
-#define SPLIT_OLED_ENABLE
+#define OLED_BRIGHTNESS 1
+#define SPLIT_MODS_ENABLE
+
 #define OLED_TIMEOUT 10000
 
 #define TAPPING_TERM 160
@@ -67,7 +118,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_TERM 50
 #define COMBO_TERM_PER_COMBO
 
-#ifdef RGB_MATRIX_ENABLE
+// #ifdef RGB_MATRIX_ENABLE
+
 #   define RGB_MATRIX_KEYPRESSES // reacts to keypresses
 // #   define RGB_MATRIX_KEYRELEASES // reacts to keyreleases (instead of keypresses)
 #   define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
@@ -116,7 +168,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define ENABLE_RGB_MATRIX_PIXEL_FLOW  // Pulsing RGB flow along LED wiring with random hues
 #    define ENABLE_RGB_MATRIX_PIXEL_RAIN // Randomly light keys with random hues
 // enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined
+// ======================================================================
 #    define ENABLE_RGB_MATRIX_TYPING_HEATMAP // How hot is your WPM!
+#define RGB_MATRIX_TYPING_HEATMAP_SPREAD 40 // Limit the distance the effect spreads to surrounding keys.
+#define RGB_MATRIX_TYPING_HEATMAP_SLIM // Remove the spread effect entirely.
+#define RGB_MATRIX_TYPING_HEATMAP_INCREASE_STEP 32 // Decreasing this value increases the number of keystrokes needed to fully heat up the key.
+// ======================================================================
 #    define ENABLE_RGB_MATRIX_DIGITAL_RAIN // That famous computer simulation
 // enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined
 #    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE // Pulses keys hit to hue & value then fades value out
@@ -136,4 +193,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define ENABLE_RGB_MATRIX_STARLIGHT_DUAL_SAT  // LEDs turn on and off at random at varying brightness, modifies user set saturation by +- 30
 #    define ENABLE_RGB_MATRIX_RIVERFLOW           // Modification to breathing animation, offset's animation depending on key location to simulate a river flowing
 #    define ENABLE_RGB_MATRIX_EFFECT_MAX    
-#endif
+// #endif
+
+#define RGB_MATRIX_STARTUP_HUE 85
+#define RGB_MATRIX_STARTUP_VAL 68
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_TYPING_HEATMAP
+
+#define SPLIT_TRANSACTION_IDS_USER USER_SYNC_A

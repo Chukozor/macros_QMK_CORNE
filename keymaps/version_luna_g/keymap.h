@@ -26,33 +26,17 @@
 #define MO_NUM MO(_NUMPAD)
 #define MO_RGB MO(_RGB)
 #define MO_NAV MO(_NAV)
-#define MO_FN MO(_F_KEYS)
-
 // #define MY_NAV MO(_NAV)
 // #define MO_SPE MO(_SPE)
 #define HT_ENT LT(_REG_SPE, KC_ENT)
 #define HT_SPC LT(_ACCENTS, KC_SPC)
 // #define MY_LCTL KC_LCTL
 // #define MY_LSFT LM(_SFT_COLEMAK_FR, MOD_LSFT)
-// #define MO_COLFR TO(_COLEMAK_FR)
+#define MO_COLFR TO(_COLEMAK_FR)
 // #define MO_GAMING TO(_GAMING)
 
-bool test_game_mode(void);
-void toggle_game_mode(bool);
-
 #define IMGLASS_CP LCTL(LSFT(KC_C))
-#define ____MOD RGB_MOD
-#define _I_RMOD RGB_RMOD
-#define __I_LUM RGB_VAI
-#define __D_LUM RGB_VAD
-#define _I_COUL RGB_HUI
-#define _D_COUL RGB_HUD
-#define __I_SAT RGB_SAI
-#define __D_SAT RGB_SAD
-#define __I_VIT RGB_SPI
-#define __D_VIT RGB_SPD
-// #define I_
-// #define D_
+
 
 // #define MO_QWEREG TO(_QWERTY_REG)
 
@@ -69,20 +53,22 @@ void toggle_game_mode(bool);
 
 enum layers{
     _COLEMAK_FR,
-    _GAME,
-    _AUX_GAME,
-    _LATEX,
+    // _GAMING,
+    // _LATEX,
+    _SFT_COLEMAK_FR,
     _CAPS_LOCK,
+    _OSL_SHIFT,
     _F_KEYS,
-    _NAV_LEFT,
-    _WEB_BROWSER,
+    // _WEB_BROWSER,
+    // _NOTHING_FOR_THE_MOMENT,
+    // _SPE,
     _NAV,
     _OP_NAV,
-    _MOUSE_LAYER,
     _ACCENTS,
     _REG_SPE,
     _MULTIMEDIA,
-    _RGB
+    _RGB,
+    _RIEN
 };
 
 enum custom_keycodes {
@@ -127,19 +113,4 @@ enum custom_keycodes {
     TEST4,
     TEST5,
     E_AIGU,
-    MY_ALT_T,
-    KY_P1,
-    KY_P2,
-    KY_P3,
-    KY_P5,
-    KY_WEBNAV,
-    KY_LEFT,
-    // KY_DOWN,
-    KY_RIGHT,
-    // KY_UP,
-    KY_SPC,
-    MY_VIRG,
-    MY_NAV_FROM_OP,
-    TG_GAME,
-    FAST_SWITCH_GAME_COLEMAK,
 };
