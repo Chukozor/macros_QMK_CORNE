@@ -75,8 +75,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CIRQUE_PINNACLE_ATTENUATION EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_2X
 // #define POINTING_DEVICE_ROTATION_90
 
-#define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_RELATIVE_MODE
-// #define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_ABSOLUTE_MODE
+// #define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_RELATIVE_MODE
+#define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_ABSOLUTE_MODE
 
 #define CIRQUE_PINNACLE_TAP_ENABLE
 #define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE
@@ -92,9 +92,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 // only required if not setting mouse layer elsewhere
 #define AUTO_MOUSE_DEFAULT_LAYER 10
-#define AUTO_MOUSE_TIME 250
-#define AUTO_MOUSE_DELAY 300
-
+#define AUTO_MOUSE_TIME 1000
+#define AUTO_MOUSE_DELAY 1000
+#define AUTO_MOUSE_THRESHOLD 10
 // =====================================================================
 
 #undef SPLIT_OLED_ENABLE
