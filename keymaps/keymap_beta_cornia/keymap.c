@@ -108,6 +108,10 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
           if (layer_state_is(_GAME)) {
             return false;
           }
+        case TOGGLE_GAME:
+          if (layer_state_is(_GAME)) {
+            return true;
+          }
         default:
           if (layer_state_is(_GAME)) {
             return false;
