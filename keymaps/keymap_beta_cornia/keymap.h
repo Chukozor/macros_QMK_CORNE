@@ -27,6 +27,7 @@
 #define MO_RGB MO(_RGB)
 #define MO_NAV MO(_NAV)
 #define MO_FN MO(_F_KEYS)
+#define MO_OX_G MO(_AUX_GAME)
 
 // #define MY_NAV MO(_NAV)
 // #define MO_SPE MO(_SPE)
